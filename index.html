@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CarUpgrade tilbyder bilservice og reparation direkte hos dig – hjemme eller på arbejdet. Professionelt mobilt værksted på Sjælland.">
+<title>CarUpgrade | Professionelt Mobilt Værksted – Vi Kommer Til Dig</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #D91B38;
+    --red-dark: #a8132a;
+    --black: #0a0a0a;
+    --dark: #111111;
+    --dark2: #1a1a1a;
+    --dark3: #242424;
+    --gray: #888;
+    --gray-light: #bbb;
+    --white: #ffffff;
+    --off-white: #f5f4f0;
+    --font-display: 'Barlow Condensed', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: background 0.3s;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    padding: 6px 10px;
+    border-radius: 2px;
+    line-height: 1;
+  }
+
+  .nav-logo img {
+    width: 138px;
+    height: auto;
+    display: block;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-light);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--red);
+    color: var(--white) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--red-dark) !important; color: var(--white) !important; }
+
+  .nav-mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+  }
+
+  .nav-mobile-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    transition: 0.3s;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 5% 80px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.8) 60%, rgba(10,10,10,0.6) 100%),
+      url('https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=1600&q=80') center/cover no-repeat;
+  }
+
+  .hero-accent {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(217,27,56,0.08) 100%);
+    pointer-events: none;
+  }
+
+  .hero-line {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--red);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1.5rem;
+    padding: 6px 12px;
+    border: 1px solid rgba(217,27,56,0.4);
+    border-radius: 2px;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--red);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--red);
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--gray-light);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--red);
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 2px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 60px;
+    right: 5%;
+    display: flex;
+    gap: 2.5rem;
+    z-index: 1;
+  }
+
+  .hero-stat { text-align: right; }
+
+  .hero-stat strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .hero-stat span {
+    font-size: 0.78rem;
+    color: var(--gray);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── SECTION UTILS ── */
+  section { padding: 100px 5%; }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--gray-light);
+    font-weight: 300;
+    max-width: 560px;
+    line-height: 1.8;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how { background: var(--dark); }
+
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    margin-top: 4rem;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .how-step {
+    background: var(--dark);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .how-step:hover { background: var(--dark2); }
+
+  .how-step::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--red);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.35s;
+  }
+
+  .how-step:hover::before { transform: scaleY(1); }
+
+  .how-num {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.05);
+    line-height: 1;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .how-step h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .how-step p {
+    font-size: 0.92rem;
+    color: var(--gray-light);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  /* ── SERVICES ── */
+  .services { background: var(--black); }
+
+  .services-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    background: transparent;
+  }
+
+  .service-card {
+    background: var(--dark);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 2.5rem;
+    transition: background 0.3s;
+    position: relative;
+    overflow: hidden;
+    min-height: 100%;
+  }
+
+  .service-card:hover { background: var(--dark2); }
+
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(217,27,56,0.35);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-icon svg { width: 24px; height: 24px; stroke: var(--red); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  .service-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card p {
+    font-size: 0.88rem;
+    color: var(--gray-light);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .service-card .service-tag {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    padding: 4px 10px;
+    border: 1px solid rgba(217,27,56,0.3);
+    border-radius: 1px;
+  }
+
+  /* ── WHY US ── */
+  .why { background: var(--dark); overflow: hidden; }
+
+  .why-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .why-features { display: flex; flex-direction: column; gap: 0; }
+
+  .why-feature {
+    padding: 1.75rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .why-feature:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+
+  .why-feature-num {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: 0.06em;
+    padding-top: 3px;
+  }
+
+  .why-feature h4 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+  }
+
+  .why-feature p {
+    font-size: 0.88rem;
+    color: var(--gray-light);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .why-visual {
+    position: relative;
+  }
+
+  .why-visual-box {
+    background: var(--dark2);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-visual-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--red);
+  }
+
+  .why-big-stat {
+    font-family: var(--font-display);
+    font-size: 6rem;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .why-big-stat span { color: var(--red); }
+
+  .why-stat-label {
+    font-size: 0.85rem;
+    color: var(--gray);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+
+  .why-mini-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    margin-top: 1.5rem;
+  }
+
+  .why-mini-stat {
+    background: var(--dark2);
+    padding: 1.25rem;
+  }
+
+  .why-mini-stat strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--white);
+  }
+
+  .why-mini-stat small {
+    font-size: 0.75rem;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── REVIEWS ── */
+  .reviews { background: var(--black); }
+
+  .reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .trustpilot-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--dark2);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 3px;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--white);
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .trustpilot-badge:hover {
+    border-color: rgba(0,182,122,0.5);
+    background: rgba(0,182,122,0.06);
+  }
+
+  .tp-stars { color: #00b67a; font-size: 1.1rem; letter-spacing: 2px; }
+
+  .tp-logo {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  .tp-logo span { color: #00b67a; }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    margin-bottom: 3rem;
+  }
+
+  .review-card {
+    background: var(--dark);
+    padding: 2rem;
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .review-card:hover { background: var(--dark2); }
+
+  .review-stars { color: #00b67a; font-size: 1rem; margin-bottom: 1rem; }
+
+  .review-text {
+    font-size: 0.92rem;
+    color: var(--gray-light);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .review-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--dark3);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--red);
+  }
+
+  .review-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--white);
+  }
+
+  .review-date {
+    font-size: 0.75rem;
+    color: var(--gray);
+  }
+
+  .reviews-cta {
+    text-align: center;
+    padding-top: 2rem;
+  }
+
+  .reviews-cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #00b67a;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid rgba(0,182,122,0.35);
+    padding: 1rem 2rem;
+    border-radius: 2px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .reviews-cta a:hover {
+    background: rgba(0,182,122,0.08);
+    border-color: rgba(0,182,122,0.7);
+  }
+
+  /* ── CONTACT ── */
+  /* REPAIRS */
+  .repairs {
+    background: var(--dark);
+    overflow: hidden;
+  }
+
+  .repairs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .repairs-gallery {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr 0.85fr;
+    gap: 1rem;
+  }
+
+  .repair-photo {
+    position: relative;
+    min-height: 320px;
+    overflow: hidden;
+    background: var(--black);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .repair-photo.featured {
+    grid-row: span 2;
+    min-height: 660px;
+  }
+
+  .repair-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+  }
+
+  .repair-photo:hover img { transform: scale(1.04); }
+
+  .repair-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 3rem 1.5rem 1.4rem;
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.82) 72%);
+  }
+
+  .repair-caption strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1.05;
+  }
+
+  .repair-caption span {
+    display: block;
+    margin-top: 0.45rem;
+    font-size: 0.82rem;
+    color: var(--gray-light);
+    font-weight: 300;
+    line-height: 1.55;
+  }
+
+  .repairs-note {
+    max-width: 760px;
+    margin: 2rem auto 0;
+    text-align: center;
+    color: var(--gray-light);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .contact { background: var(--dark); }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-info { padding-top: 0.5rem; }
+
+  .contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-detail-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(217,27,56,0.3);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .contact-detail-icon svg { width: 18px; height: 18px; stroke: var(--red); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  .contact-detail-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 4px;
+  }
+
+  .contact-detail-value {
+    font-size: 0.95rem;
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .contact-detail-value a { color: var(--white); transition: color 0.2s; }
+  .contact-detail-value a:hover { color: var(--red); }
+
+  .contact-form { background: var(--dark2); border: 1px solid rgba(255,255,255,0.07); padding: 2.5rem; border-radius: 3px; }
+
+  .form-group { margin-bottom: 1.25rem; }
+
+  .form-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 2px;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--red);
+    background: rgba(217,27,56,0.04);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 130px; }
+
+  .form-group select { appearance: none; cursor: pointer; }
+  .form-group option { background: var(--dark2); color: var(--white); }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--red);
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1rem;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:hover { background: var(--red-dark); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 4rem 5% 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .footer-brand p {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 280px;
+    margin-top: 1rem;
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    background: var(--white);
+    padding: 8px 10px;
+    border-radius: 2px;
+  }
+
+  .footer-logo img {
+    width: 170px;
+    height: auto;
+    display: block;
+  }
+
+  .footer-col h5 {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col li {
+    margin-bottom: 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .footer-col a {
+    color: var(--gray);
+    transition: color 0.2s;
+    font-weight: 300;
+  }
+
+  .footer-col a:hover { color: var(--white); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom p {
+    font-size: 0.78rem;
+    color: var(--gray);
+    font-weight: 300;
+  }
+
+  .footer-bottom a { color: var(--red); }
+
+  .footer-cvr-line {
+    text-align: center;
+    color: var(--gray);
+    font-size: 0.82rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    margin: -1rem 0 3rem;
+  }
+
+  .footer-cvr {
+    font-size: 0.75rem;
+    color: var(--gray);
+    font-weight: 300;
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  [data-reveal].revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  [data-reveal-delay="1"] { transition-delay: 0.1s; }
+  [data-reveal-delay="2"] { transition-delay: 0.2s; }
+  [data-reveal-delay="3"] { transition-delay: 0.3s; }
+  [data-reveal-delay="4"] { transition-delay: 0.4s; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 980px) {
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(10,10,10,0.97);
+      padding: 2rem 5%;
+      gap: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      z-index: 999;
+      align-items: flex-start;
+    }
+    .nav-mobile-toggle { display: flex; }
+    .hero-stats { display: none; }
+    .why-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .repairs-gallery { grid-template-columns: 1fr 1fr; }
+    .repair-photo.featured { grid-row: span 1; min-height: 320px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    section { padding: 70px 5%; }
+  }
+
+  @media (max-width: 640px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .services-intro { flex-direction: column; align-items: flex-start; }
+    .reviews-header { flex-direction: column; align-items: flex-start; }
+    .repairs-header { flex-direction: column; align-items: flex-start; }
+    .repairs-gallery { grid-template-columns: 1fr; }
+    .repair-photo, .repair-photo.featured { min-height: 300px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo" aria-label="CarUpgrade">
+    <img src="assets/carupgrade-logo.png" alt="CarUpgrade.dk">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#hvordan">Sådan fungerer det</a></li>
+    <li><a href="#anmeldelser">Anmeldelser</a></li>
+    <li><a href="#reparationer">Reparationer</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+    <li><a href="#kontakt" class="nav-cta">Få et tilbud</a></li>
+  </ul>
+  <button class="nav-mobile-toggle" id="menuToggle" aria-label="Åbn menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hjem">
+  <div class="hero-bg"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-line"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Mobilt værksted med erfarne mekanikere</div>
+    <h1>
+      Professionel<br>
+      bilservice
+      <em>hos dig.</em>
+    </h1>
+    <p class="hero-sub">
+      Vi sender en uddannet mekaniker direkte til din hjemmeadresse eller arbejdsplads.
+      Spar tid og besvær – vi håndterer alt fra rutinemæssig service til komplekse reparationer.
+    </p>
+    <div class="hero-actions">
+      <a href="#kontakt" class="btn-primary">
+        Bestil mobilt værksted
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="#services" class="btn-secondary">Se vores services</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <strong>100%</strong>
+      <span>Tilfredsgaranti</span>
+    </div>
+    <div class="hero-stat">
+      <strong>3.8★</strong>
+      <span>Trustpilot-vurdering</span>
+    </div>
+    <div class="hero-stat">
+      <strong>Sjælland</strong>
+      <span>Dækningsområde</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="hvordan">
+  <div class="section-label">Processen</div>
+  <h2 class="section-title">Sådan fungerer det</h2>
+  <p class="section-sub">Fra din første henvendelse til nøglerne er i hånden igen – vi har gjort processen så smidig som mulig.</p>
+  <div class="how-grid">
+    <div class="how-step" data-reveal>
+      <span class="how-num">01</span>
+      <h3>Beskriv din opgave</h3>
+      <p>Udfyld vores kontaktformular med en beskrivelse af problemet og dine biloplysninger. Vi kontakter dig hurtigt med et uforpligtende tilbud.</p>
+    </div>
+    <div class="how-step" data-reveal data-reveal-delay="1">
+      <span class="how-num">02</span>
+      <h3>Vi aftaler tid og sted</h3>
+      <p>Du vælger selv, hvornår og hvor det passer dig bedst – hjemme, på kontoret eller et andet sted. Ingen ventetid i receptionen.</p>
+    </div>
+    <div class="how-step" data-reveal data-reveal-delay="2">
+      <span class="how-num">03</span>
+      <h3>Mekanikeren ankommer</h3>
+      <p>Vores uddannede mekaniker kontakter dig inden ankomst. Har du ændringer, er vi fleksible. Vi medbringer alt nødvendigt udstyr.</p>
+    </div>
+    <div class="how-step" data-reveal data-reveal-delay="3">
+      <span class="how-num">04</span>
+      <h3>Opgaven løses – hos dig</h3>
+      <p>De fleste opgaver løses på stedet. Kræver opgaven et værksted, tager vi bilen med og leverer den tilbage til dig, når den er færdig.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-intro">
+    <div>
+      <div class="section-label">Hvad vi tilbyder</div>
+      <h2 class="section-title">Vores services</h2>
+      <p class="section-sub">Mobilt værksted med fuldt professionelt udstyr – til alt fra rutinemæssig service til større reparationer.</p>
+    </div>
+    <a href="#kontakt" class="btn-primary" style="flex-shrink:0;">Bestil nu</a>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card" data-reveal>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </div>
+      <h3>Rutinemæssig service</h3>
+      <p>Olieskift, filterskift, tændrørsudskiftning, fuldt serviceeftersyn og synstjek – udført til fabriksspecifikationer og med godkendte reservedele, direkte hos dig.</p>
+      <span class="service-tag">Mobilt</span>
+    </div>
+
+    <div class="service-card" data-reveal data-reveal-delay="1">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 9H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5S16.33 9 15.5 9z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 15H10v-1.5c0-.83-.67-1.5-1.5-1.5S7 12.67 7 13.5 7.67 15 8.5 15z"/></svg>
+      </div>
+      <h3>Bremser &amp; dæk</h3>
+      <p>Udskiftning af bremseklodser, bremseskiver og dæk. Vi kontrollerer hele bremsesystemet og sikrer din sikkerhed på vejen med fabriksgodkendte komponenter.</p>
+      <span class="service-tag">Mobilt</span>
+    </div>
+
+    <div class="service-card" data-reveal data-reveal-delay="2">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      </div>
+      <h3>Motordiagnostik</h3>
+      <p>Vi anvender professionelt OBD-diagnosetil at identificere fejlkoder og elektroniske problemer hurtigt og præcist. Nøjagtig diagnose – ingen unødvendige udgifter.</p>
+      <span class="service-tag">Mobilt</span>
+    </div>
+
+    <div class="service-card" data-reveal data-reveal-delay="1">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Reparationer på værkstedet</h3>
+      <p>Opgaver der kræver lift eller specialudstyr løser vi på vores eget værksted. Vi henter og leverer bilen – du mærker intet til besværet.</p>
+      <span class="service-tag">Afhentning inkl.</span>
+    </div>
+
+    <div class="service-card" data-reveal data-reveal-delay="2">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3>El-system &amp; batteri</h3>
+      <p>Fejlfinding og reparation af elektriske systemer, alternator, starter og batteri. Vi tester og erstatter batteriet på stedet – og du er kørende igen om få minutter.</p>
+      <span class="service-tag">Mobilt</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="omOs">
+  <div class="why-inner">
+    <div>
+      <div class="section-label">Hvorfor CarUpgrade</div>
+      <h2 class="section-title">Kvalitet<br>du kan stole på</h2>
+      <p class="section-sub" style="margin-bottom: 3rem;">Vi er ikke et anonymt servicebureau. Vi er håndværkere, der sætter faglig stolthed og ærlighed over alt.</p>
+      <div class="why-features">
+        <div class="why-feature" data-reveal>
+          <span class="why-feature-num">01</span>
+          <div>
+            <h4>Uddannede mekanikere</h4>
+            <p>Alle vores mekanikere har solid faglig uddannelse og praktisk erfaring. Din bil er i kompetente hænder fra første kontakt til færdigt arbejde.</p>
+          </div>
+        </div>
+        <div class="why-feature" data-reveal>
+          <span class="why-feature-num">02</span>
+          <div>
+            <h4>Fabriksgodkendte reservedele</h4>
+            <p>Vi anvender udelukkende dele, der lever op til fabrikantens krav og standarder – for maksimal sikkerhed og levetid.</p>
+          </div>
+        </div>
+        <div class="why-feature" data-reveal>
+          <span class="why-feature-num">03</span>
+          <div>
+            <h4>Gennemsigtig prissætning</h4>
+            <p>Ingen skjulte gebyrer. Du modtager et klart, skriftligt tilbud inden arbejdet påbegyndes – og prisen er den pris du betaler.</p>
+          </div>
+        </div>
+        <div class="why-feature" data-reveal>
+          <span class="why-feature-num">04</span>
+          <div>
+            <h4>Garanti på arbejdet</h4>
+            <p>Al udført arbejde og alle monterede dele er dækket af garanti. Vi står inde for kvaliteten af vores arbejde – uden forbehold.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-visual" data-reveal>
+      <div class="why-visual-box">
+        <div class="why-big-stat">3.8<span>★</span></div>
+        <p class="why-stat-label">Gennemsnitlig Trustpilot-vurdering</p>
+        <p style="font-size:0.88rem; color: var(--gray-light); font-weight:300; line-height:1.7;">
+          CarUpgrade har sin egen Trustpilot-profil med rigtige kundeoplevelser. Læs anmeldelserne og få et ærligt indblik i service, pris og udført arbejde.
+        </p>
+        <div class="why-mini-stats">
+          <div class="why-mini-stat">
+            <strong>100%</strong>
+            <small>Tilfredsgaranti</small>
+          </div>
+          <div class="why-mini-stat">
+            <strong>Sjælland</strong>
+            <small>Dækning</small>
+          </div>
+          <div class="why-mini-stat">
+            <strong>&lt; 24t</strong>
+            <small>Svartid</small>
+          </div>
+          <div class="why-mini-stat">
+            <strong>Garanti</strong>
+            <small>På alt arbejde</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="anmeldelser">
+  <div class="reviews-header">
+    <div>
+      <div class="section-label">Anmeldelser</div>
+      <h2 class="section-title">Hvad vores kunder siger</h2>
+      <p class="section-sub">Direkte adgang til CarUpgrades rigtige Trustpilot-profil.</p>
+    </div>
+    <a href="https://dk.trustpilot.com/review/carupgrade.dk" target="_blank" rel="noopener" class="trustpilot-badge">
+      <span class="tp-stars">★★★★★</span>
+      <span>Se alle anmeldelser på <span class="tp-logo">Trust<span>pilot</span></span></span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="review-card" data-reveal>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Vild god service. Har brugt ham flere gange, har lige fået skiftet bremser til en god pris. Altid godt humør."</p>
+      <div class="review-author">
+        <div class="review-avatar">LV</div>
+        <div>
+          <div class="review-name">Leif V.</div>
+          <div class="review-date">Trustpilot · 23. november 2025</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card" data-reveal data-reveal-delay="1">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"God og hurtig reparation. Jeg fik pris på service bagefter, som jeg også sagde ja til."</p>
+      <div class="review-author">
+        <div class="review-avatar">SØ</div>
+        <div>
+          <div class="review-name">Søren</div>
+          <div class="review-date">Trustpilot · 14. december 2024</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card" data-reveal data-reveal-delay="2">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">CarUpgrade er vurderet til 3,8 på Trustpilot baseret på de nuværende anmeldelser. Klik videre for at se profilen og skrive din egen anmeldelse.</p>
+      <div class="review-author">
+        <div class="review-avatar">TP</div>
+        <div>
+          <div class="review-name">CarUpgrade</div>
+          <div class="review-date">Trustpilot-profil · 2 anmeldelser</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-cta">
+    <a href="https://dk.trustpilot.com/review/carupgrade.dk" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b67a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Læs alle anmeldelser på Trustpilot
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00b67a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- REPAIRS -->
+<section class="repairs" id="reparationer">
+  <div class="repairs-header">
+    <div>
+      <div class="section-label">Reparationer</div>
+      <h2 class="section-title">Arbejde fra vejen</h2>
+      <p class="section-sub">Et kig ind i den mobile hverdag: diagnosticering, montering og reparationer udført dér, hvor bilen holder.</p>
+    </div>
+    <a href="#kontakt" class="btn-primary" style="flex-shrink:0;">Book reparation</a>
+  </div>
+
+  <div class="repairs-gallery">
+    <figure class="repair-photo featured" data-reveal>
+      <img src="assets/repair-work-2.jpeg" alt="CarUpgrade servicevogn og bil under reparation" loading="lazy">
+      <figcaption class="repair-caption">
+        <strong>Værkstedet med på farten</strong>
+        <span>Fuldt udstyret servicevogn klar til opgaven hjemme, på arbejde eller hvor bilen holder.</span>
+      </figcaption>
+    </figure>
+    <figure class="repair-photo" data-reveal data-reveal-delay="1">
+      <img src="assets/repair-work-3.jpeg" alt="Diagnoseudstyr til fejlfinding på bil" loading="lazy">
+      <figcaption class="repair-caption">
+        <strong>Præcis fejlfinding</strong>
+        <span>Professionel diagnose, så fejlen findes hurtigt og løsningen bliver målrettet.</span>
+      </figcaption>
+    </figure>
+    <figure class="repair-photo" data-reveal data-reveal-delay="2">
+      <img src="assets/repair-multimedia.jpeg" alt="Montering af multimedia i bil" loading="lazy">
+      <figcaption class="repair-caption">
+        <strong>Montering med finish</strong>
+        <span>Opgraderinger og reparationer udført ordentligt, rent og med blik for detaljen.</span>
+      </figcaption>
+    </figure>
+    <figure class="repair-photo" data-reveal data-reveal-delay="1">
+      <img src="assets/repair-work-1.jpeg" alt="CarUpgrade servicevogn ude hos kunde" loading="lazy">
+      <figcaption class="repair-caption">
+        <strong>Vi kommer til dig</strong>
+        <span>Fleksibel hjælp på Sjælland, uden at du skal bruge dagen på værkstedsbesøg.</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <p class="repairs-note">Fra fejlkoder til færdig løsning: CarUpgrade gør bilreparation nemmere, tættere på og mere gennemsigtig.</p>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="kontakt">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="section-label">Kontakt os</div>
+      <h2 class="section-title">Få bilen fikset hos dig</h2>
+      <p class="section-sub" style="margin-bottom: 3rem;">Beskriv din opgave og vi sender dig et uforpligtende tilbud inden for 24 timer. Ingen ventetid – ingen overraskelser.</p>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="contact-detail-label">Email</div>
+          <div class="contact-detail-value"><a href="mailto:info@carupgrade.dk">info@carupgrade.dk</a></div>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.8a2 2 0 0 1-.45 2.11L8.05 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.31 1.84.53 2.8.66A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div>
+          <div class="contact-detail-label">Telefon</div>
+          <div class="contact-detail-value"><a href="tel:+4531147737">31 14 77 37</a></div>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <div>
+          <div class="contact-detail-label">Svartid</div>
+          <div class="contact-detail-value">Inden for 24 timer på hverdage</div>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <div class="contact-detail-label">Åbningstider</div>
+          <div class="contact-detail-value">Man-Fre 07:00-16:00<br>Weekender efter aftale</div>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="contact-detail-label">Dækningsområde</div>
+          <div class="contact-detail-value">Sjælland</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form" data-reveal>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Navn *</label>
+          <input type="text" id="name" placeholder="Dit fulde navn" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Telefon</label>
+          <input type="tel" id="phone" placeholder="Mobilnummer">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" placeholder="din@email.dk" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="car">Bilmærke &amp; model</label>
+          <input type="text" id="car" placeholder="F.eks. VW Golf 2019">
+        </div>
+        <div class="form-group">
+          <label for="service">Service type</label>
+          <select id="service">
+            <option value="">Vælg servicetyp...</option>
+            <option>Rutinemæssig service</option>
+            <option>Bremser &amp; dæk</option>
+            <option>Motordiagnostik</option>
+            <option>El-system &amp; batteri</option>
+            <option>Reparation (afhentning)</option>
+            <option>Andet</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message">Beskrivelse af opgaven *</label>
+        <textarea id="message" placeholder="Beskriv problemet eller opgaven så præcist som muligt. Gerne inkluder kilometerstand og eventuelle fejlkoder..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send uforpligtende forespørgsel →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="assets/carupgrade-logo.png" alt="CarUpgrade.dk">
+      </div>
+      <p>Professionelt mobilt værksted der kommer til dig på Sjælland. Uddannede mekanikere, gennemsigtige priser og garanti på alt arbejde.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">Rutinemæssig service</a></li>
+        <li><a href="#services">Bremser &amp; dæk</a></li>
+        <li><a href="#services">Motordiagnostik</a></li>
+        <li><a href="#services">El-system &amp; batteri</a></li>
+        <li><a href="#services">Reparation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Navigation</h5>
+      <ul>
+        <li><a href="#hjem">Forside</a></li>
+        <li><a href="#hvordan">Sådan fungerer det</a></li>
+        <li><a href="#omOs">Om CarUpgrade</a></li>
+        <li><a href="#anmeldelser">Anmeldelser</a></li>
+        <li><a href="#reparationer">Reparationer</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Kundecenter</h5>
+      <ul>
+        <li><a href="#">Handelsbetingelser</a></li>
+        <li><a href="#">Privatlivspolitik</a></li>
+        <li><a href="#">Cookiepolitik</a></li>
+        <li><a href="https://dk.trustpilot.com/review/carupgrade.dk" target="_blank" rel="noopener">Trustpilot anmeldelser</a></li>
+        <li><a href="#kontakt">Få et tilbud</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="footer-cvr-line">CVR: 46080009</p>
+  <div class="footer-bottom">
+    <p>© 2025 CarUpgrade. Alle rettigheder forbeholdes.</p>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('[data-reveal]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Form submit (demo)
+  document.querySelector('.form-submit').addEventListener('click', function(e) {
+    e.preventDefault();
+    const btn = this;
+    btn.textContent = 'Sender...';
+    btn.style.background = '#555';
+    setTimeout(() => {
+      btn.textContent = '✓ Forespørgsel sendt! Vi vender tilbage inden 24 timer.';
+      btn.style.background = '#1a7a4a';
+      setTimeout(() => {
+        btn.textContent = 'Send uforpligtende forespørgsel →';
+        btn.style.background = '';
+      }, 5000);
+    }, 1200);
+  });
+</script>
+</body>
+</html>
