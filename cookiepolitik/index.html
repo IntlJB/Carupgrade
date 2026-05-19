@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Læs Carupgrades cookiepolitik og se hvordan www.carupgrade.dk forholder sig til cookies, tracking og kontaktformularen.">
+<title>Cookiepolitik | Carupgrade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #D91B38;
+    --red-dark: #a8132a;
+    --black: #0a0a0a;
+    --dark: #111111;
+    --dark2: #1a1a1a;
+    --gray: #888;
+    --gray-light: #bbb;
+    --white: #ffffff;
+    --font-display: 'Barlow Condensed', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    padding: 6px 10px;
+    border-radius: 2px;
+    line-height: 1;
+  }
+  .nav-logo img { width: 138px; height: auto; display: block; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-light);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--red);
+    color: var(--white) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--red-dark) !important; color: var(--white) !important; }
+  .nav-mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+  }
+  .nav-mobile-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    transition: 0.3s;
+  }
+
+  .legal-hero {
+    padding: 150px 5% 70px;
+    background:
+      linear-gradient(135deg, rgba(10,10,10,0.98) 0%, rgba(10,10,10,0.86) 62%, rgba(217,27,56,0.12) 100%),
+      url('../assets/repair-work-3.jpeg') center/cover no-repeat;
+    border-bottom: 4px solid var(--red);
+  }
+  .legal-hero-inner,
+  .legal-content {
+    width: min(920px, 100%);
+    margin: 0 auto;
+  }
+  .section-label {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 5.8rem);
+    font-weight: 900;
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+  .updated {
+    color: var(--gray-light);
+    font-size: 0.95rem;
+    font-weight: 300;
+  }
+  .legal-content {
+    padding: 70px 5% 90px;
+  }
+  .legal-card {
+    background: var(--dark);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: clamp(1.5rem, 4vw, 3rem);
+  }
+  .legal-section + .legal-section { margin-top: 2.5rem; }
+  .legal-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.55rem, 3vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom: 0.9rem;
+  }
+  .legal-section p,
+  .legal-section li,
+  .contact-block {
+    color: var(--gray-light);
+    font-weight: 300;
+  }
+  .legal-section p + p { margin-top: 1rem; }
+  .legal-section ul {
+    margin: 0.9rem 0 0 1.1rem;
+    padding-left: 0.4rem;
+  }
+  .legal-section li { margin-bottom: 0.45rem; }
+  .legal-section a {
+    color: var(--white);
+    border-bottom: 1px solid var(--red);
+  }
+  .contact-block {
+    border-left: 3px solid var(--red);
+    background: var(--dark2);
+    padding: 1.1rem 1.25rem;
+    margin-top: 1rem;
+  }
+
+  footer {
+    background: var(--black);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 4rem 5% 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+  }
+  .footer-brand p {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 280px;
+    margin-top: 1rem;
+  }
+  .footer-logo {
+    display: inline-flex;
+    background: var(--white);
+    padding: 8px 10px;
+    border-radius: 2px;
+  }
+  .footer-logo img { width: 170px; height: auto; display: block; }
+  .footer-col h5 {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 0.6rem; font-size: 0.85rem; }
+  .footer-col a {
+    color: var(--gray);
+    transition: color 0.2s;
+    font-weight: 300;
+  }
+  .footer-col a:hover { color: var(--white); }
+  .footer-cvr-line {
+    text-align: center;
+    color: var(--gray);
+    font-size: 0.82rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    margin: -1rem 0 3rem;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .footer-bottom p {
+    font-size: 0.78rem;
+    color: var(--gray);
+    font-weight: 300;
+  }
+
+  @media (max-width: 980px) {
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(10,10,10,0.97);
+      padding: 2rem 5%;
+      gap: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      z-index: 999;
+      align-items: flex-start;
+    }
+    .nav-mobile-toggle { display: flex; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  }
+  @media (max-width: 640px) {
+    .legal-hero { padding-top: 125px; padding-bottom: 55px; }
+    .legal-content { padding-top: 48px; padding-bottom: 70px; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="/" class="nav-logo" aria-label="CarUpgrade">
+    <img src="../assets/carupgrade-logo.png" alt="CarUpgrade.dk">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#hvordan">Sådan fungerer det</a></li>
+    <li><a href="/#anmeldelser">Anmeldelser</a></li>
+    <li><a href="/#reparationer">Reparationer</a></li>
+    <li><a href="/#kontakt">Kontakt</a></li>
+    <li><a href="/#kontakt" class="nav-cta">Få et tilbud</a></li>
+  </ul>
+  <button class="nav-mobile-toggle" id="menuToggle" aria-label="Åbn menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<header class="legal-hero">
+  <div class="legal-hero-inner">
+    <div class="section-label">Carupgrade</div>
+    <h1>Cookiepolitik</h1>
+    <p class="updated">Sidst opdateret: 19. maj 2026</p>
+  </div>
+</header>
+
+<main class="legal-content">
+  <article class="legal-card">
+    <section class="legal-section">
+      <h2>1. Introduktion</h2>
+      <p>Denne cookiepolitik forklarer, om og hvordan Carupgrade bruger cookies på <a href="https://www.carupgrade.dk">www.carupgrade.dk</a>.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>2. Hvad er cookies?</h2>
+      <p>Cookies er små tekstfiler, der kan gemmes på din computer, telefon eller tablet, når du besøger en hjemmeside. Cookies kan blandt andet bruges til tekniske funktioner, statistik, brugeroplevelse eller markedsføring.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>3. Bruger Carupgrade cookies?</h2>
+      <p>Carupgrade bruger på nuværende tidspunkt ikke cookies på <a href="https://www.carupgrade.dk">www.carupgrade.dk</a>, så vidt Carupgrade er bekendt. Der er foretaget en online cookie-test, som ikke viste aktive cookies på hjemmesiden.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>4. Ingen tracking eller marketingcookies</h2>
+      <p>Carupgrade bruger ikke Google Analytics, Meta/Facebook Pixel, Google Ads tracking, nyhedsbrevscookies eller andre marketingcookies på hjemmesiden, medmindre dette senere bliver tilføjet og cookiepolitikken opdateres.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>5. Kontaktformular</h2>
+      <p>Selvom hjemmesiden ikke bruger cookies, kan du stadig afgive personoplysninger via kontaktformularen. Disse oplysninger behandles efter Carupgrades <a href="/privatlivspolitik/">privatlivspolitik</a>.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>6. Ændringer i brugen af cookies</h2>
+      <p>Hvis Carupgrade senere tilføjer cookies, statistikværktøjer, tracking, annoncering, embedded indhold eller lignende teknologier, vil cookiepolitikken blive opdateret. Hvis der bruges cookies, som kræver samtykke, skal brugeren have mulighed for at give eller afvise samtykke.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>7. Sådan kan du slette eller blokere cookies</h2>
+      <p>Du kan selv slette eller blokere cookies i din browser. Hvordan dette gøres afhænger af den browser, du anvender.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>8. Kontakt</h2>
+      <p>Hvis du har spørgsmål til Carupgrades brug af cookies, kan Carupgrade kontaktes på:</p>
+      <div class="contact-block">
+        E-mail: <a href="mailto:info@carupgrade.dk">info@carupgrade.dk</a><br>
+        Telefon: <a href="tel:+4531147737">31 14 77 37</a>
+      </div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="../assets/carupgrade-logo.png" alt="CarUpgrade.dk">
+      </div>
+      <p>Professionelt mobilt værksted der kommer til dig på Sjælland. Uddannede mekanikere, gennemsigtige priser og garanti på alt arbejde.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="/#services">Rutinemæssig service</a></li>
+        <li><a href="/#services">Bremser &amp; dæk</a></li>
+        <li><a href="/#services">Motordiagnostik</a></li>
+        <li><a href="/#services">El-system &amp; batteri</a></li>
+        <li><a href="/#services">Reparation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Navigation</h5>
+      <ul>
+        <li><a href="/#hjem">Forside</a></li>
+        <li><a href="/#hvordan">Sådan fungerer det</a></li>
+        <li><a href="/#omOs">Om CarUpgrade</a></li>
+        <li><a href="/#anmeldelser">Anmeldelser</a></li>
+        <li><a href="/#reparationer">Reparationer</a></li>
+        <li><a href="/#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Kundecenter</h5>
+      <ul>
+        <li><a href="#">Handelsbetingelser</a></li>
+        <li><a href="/privatlivspolitik/">Privatlivspolitik</a></li>
+        <li><a href="/cookiepolitik/">Cookiepolitik</a></li>
+        <li><a href="https://dk.trustpilot.com/review/carupgrade.dk" target="_blank" rel="noopener">Trustpilot anmeldelser</a></li>
+        <li><a href="/#kontakt">Få et tilbud</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="footer-cvr-line">CVR: 46080009</p>
+  <div class="footer-bottom">
+    <p>© 2025 CarUpgrade. Alle rettigheder forbeholdes.</p>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+</script>
+</body>
+</html>
