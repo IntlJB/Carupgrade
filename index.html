@@ -893,6 +893,24 @@
   }
 
   .form-submit:hover { background: var(--red-dark); }
+  .form-submit:disabled { cursor: not-allowed; opacity: 0.72; }
+
+  .form-status {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-left: 3px solid var(--red);
+    border-radius: 2px;
+    background: rgba(255,255,255,0.04);
+    color: var(--gray-light);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .form-status.is-visible { display: block; }
+  .form-status.is-success { border-left-color: #27b36a; color: var(--white); background: rgba(39,179,106,0.08); }
+  .form-status.is-error { border-left-color: var(--red); color: var(--white); background: rgba(217,27,56,0.08); }
 
   /* ── FOOTER ── */
   footer {
@@ -1422,29 +1440,29 @@
       </div>
     </div>
 
-    <div class="contact-form" data-reveal>
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mlgzygqg" method="POST" data-reveal>
       <div class="form-row">
         <div class="form-group">
           <label for="name">Navn *</label>
-          <input type="text" id="name" placeholder="Dit fulde navn" required>
+          <input type="text" id="name" name="name" placeholder="Dit fulde navn" autocomplete="name" required>
         </div>
         <div class="form-group">
           <label for="phone">Telefon</label>
-          <input type="tel" id="phone" placeholder="Mobilnummer">
+          <input type="tel" id="phone" name="phone" placeholder="Mobilnummer" autocomplete="tel">
         </div>
       </div>
       <div class="form-group">
         <label for="email">Email *</label>
-        <input type="email" id="email" placeholder="din@email.dk" required>
+        <input type="email" id="email" name="email" placeholder="din@email.dk" autocomplete="email" required>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label for="car">Bilmærke &amp; model</label>
-          <input type="text" id="car" placeholder="F.eks. VW Golf 2019">
+          <input type="text" id="car" name="car" placeholder="F.eks. VW Golf 2019">
         </div>
         <div class="form-group">
           <label for="service">Service type</label>
-          <select id="service">
+          <select id="service" name="service">
             <option value="">Vælg servicetyp...</option>
             <option>Rutinemæssig service</option>
             <option>Bremser &amp; dæk</option>
@@ -1457,10 +1475,12 @@
       </div>
       <div class="form-group">
         <label for="message">Beskrivelse af opgaven *</label>
-        <textarea id="message" placeholder="Beskriv problemet eller opgaven så præcist som muligt. Gerne inkluder kilometerstand og eventuelle fejlkoder..." required></textarea>
+        <textarea id="message" name="message" placeholder="Beskriv problemet eller opgaven så præcist som muligt. Gerne inkluder kilometerstand og eventuelle fejlkoder..." required></textarea>
       </div>
+      <input type="hidden" name="_subject" value="Ny forespørgsel fra CarUpgrade.dk">
       <button type="submit" class="form-submit">Send uforpligtende forespørgsel →</button>
-    </div>
+      <div class="form-status" role="status" aria-live="polite"></div>
+    </form>
   </div>
 </section>
 
@@ -1525,20 +1545,46 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   reveals.forEach(el => observer.observe(el));
 
-  // Form submit (demo)
-  document.querySelector('.form-submit').addEventListener('click', function(e) {
+  // Formspree AJAX submit
+  const contactForm = document.getElementById('contactForm');
+  const submitButton = contactForm.querySelector('.form-submit');
+  const formStatus = contactForm.querySelector('.form-status');
+  const defaultSubmitText = submitButton.textContent;
+
+  const showFormStatus = (message, type) => {
+    formStatus.textContent = message;
+    formStatus.className = `form-status is-visible is-${type}`;
+  };
+
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn = this;
-    btn.textContent = 'Sender...';
-    btn.style.background = '#555';
-    setTimeout(() => {
-      btn.textContent = '✓ Forespørgsel sendt! Vi vender tilbage inden 24 timer.';
-      btn.style.background = '#1a7a4a';
-      setTimeout(() => {
-        btn.textContent = 'Send uforpligtende forespørgsel →';
-        btn.style.background = '';
-      }, 5000);
-    }, 1200);
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sender forespørgsel...';
+    submitButton.style.background = '#555';
+    formStatus.className = 'form-status';
+    formStatus.textContent = '';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { Accept: 'application/json' }
+      });
+
+      if (!response.ok) throw new Error('Formspree afviste beskeden');
+
+      contactForm.reset();
+      submitButton.textContent = 'Forespørgsel sendt';
+      submitButton.style.background = '#1a7a4a';
+      showFormStatus('Tak for din forespørgsel. Vi har modtaget dine oplysninger og vender tilbage med et uforpligtende svar inden for 24 timer på hverdage.', 'success');
+    } catch (error) {
+      submitButton.textContent = defaultSubmitText;
+      submitButton.style.background = '';
+      showFormStatus('Der opstod desværre en fejl, og din forespørgsel blev ikke sendt. Prøv igen om lidt, eller kontakt os direkte på info@carupgrade.dk.', 'error');
+    } finally {
+      submitButton.disabled = false;
+    }
   });
 </script>
 </body>
