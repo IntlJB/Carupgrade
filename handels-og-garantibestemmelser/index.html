@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Læs Carupgrades handels- og garantibestemmelser for ydelser, reparationer, montering og reservedele.">
+<title>Handels- og Garantibestemmelser | Carupgrade</title>
+<link rel="icon" type="image/png" sizes="28x28" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #D91B38;
+    --red-dark: #a8132a;
+    --black: #0a0a0a;
+    --dark: #111111;
+    --dark2: #1a1a1a;
+    --gray: #888;
+    --gray-light: #bbb;
+    --white: #ffffff;
+    --font-display: 'Barlow Condensed', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    padding: 6px 10px;
+    border-radius: 2px;
+    line-height: 1;
+  }
+  .nav-logo img { width: 138px; height: auto; display: block; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-light);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--red);
+    color: var(--white) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--red-dark) !important; color: var(--white) !important; }
+  .nav-mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+  }
+  .nav-mobile-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    transition: 0.3s;
+  }
+
+  .legal-hero {
+    padding: 150px 5% 70px;
+    background:
+      linear-gradient(135deg, rgba(10,10,10,0.98) 0%, rgba(10,10,10,0.86) 62%, rgba(217,27,56,0.12) 100%),
+      url('../assets/repair-work-3.jpeg') center/cover no-repeat;
+    border-bottom: 4px solid var(--red);
+  }
+  .legal-hero-inner,
+  .legal-content {
+    width: min(920px, 100%);
+    margin: 0 auto;
+  }
+  .section-label {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 5.8rem);
+    font-weight: 900;
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+  .updated {
+    color: var(--gray-light);
+    font-size: 0.95rem;
+    font-weight: 300;
+  }
+  .legal-content {
+    padding: 70px 5% 90px;
+  }
+  .legal-card {
+    background: var(--dark);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: clamp(1.5rem, 4vw, 3rem);
+  }
+  .legal-section + .legal-section { margin-top: 2.5rem; }
+  .legal-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.55rem, 3vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom: 0.9rem;
+  }
+  .legal-section h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin: 1.35rem 0 0.65rem;
+  }
+  .legal-section p,
+  .legal-section li,
+  .contact-block {
+    color: var(--gray-light);
+    font-weight: 300;
+  }
+  .legal-section p + p { margin-top: 1rem; }
+  .legal-section ul {
+    margin: 0.9rem 0 0 1.1rem;
+    padding-left: 0.4rem;
+  }
+  .legal-section li { margin-bottom: 0.45rem; }
+  .legal-section a {
+    color: var(--white);
+    border-bottom: 1px solid var(--red);
+  }
+  .contact-block {
+    border-left: 3px solid var(--red);
+    background: var(--dark2);
+    padding: 1.1rem 1.25rem;
+    margin-top: 1rem;
+  }
+
+  footer {
+    background: var(--black);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 4rem 5% 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+  }
+  .footer-brand p {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 280px;
+    margin-top: 1rem;
+  }
+  .footer-logo {
+    display: inline-flex;
+    background: var(--white);
+    padding: 8px 10px;
+    border-radius: 2px;
+  }
+  .footer-logo img { width: 170px; height: auto; display: block; }
+  .footer-col h5 {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 0.6rem; font-size: 0.85rem; }
+  .footer-col a {
+    color: var(--gray);
+    transition: color 0.2s;
+    font-weight: 300;
+  }
+  .footer-col a:hover { color: var(--white); }
+  .footer-cvr-line {
+    text-align: center;
+    color: var(--gray);
+    font-size: 0.82rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    margin: -1rem 0 3rem;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .footer-bottom p {
+    font-size: 0.78rem;
+    color: var(--gray);
+    font-weight: 300;
+  }
+
+  @media (max-width: 980px) {
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(10,10,10,0.97);
+      padding: 2rem 5%;
+      gap: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      z-index: 999;
+      align-items: flex-start;
+    }
+    .nav-mobile-toggle { display: flex; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  }
+  @media (max-width: 640px) {
+    .legal-hero { padding-top: 125px; padding-bottom: 55px; }
+    .legal-content { padding-top: 48px; padding-bottom: 70px; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="/" class="nav-logo" aria-label="CarUpgrade">
+    <img src="../assets/carupgrade-logo.png" alt="CarUpgrade.dk">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#hvordan">Sådan fungerer det</a></li>
+    <li><a href="/#anmeldelser">Anmeldelser</a></li>
+    <li><a href="/#reparationer">Reparationer</a></li>
+    <li><a href="/#kontakt">Kontakt</a></li>
+    <li><a href="/#kontakt" class="nav-cta">Få et tilbud</a></li>
+  </ul>
+  <button class="nav-mobile-toggle" id="menuToggle" aria-label="Åbn menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<header class="legal-hero">
+  <div class="legal-hero-inner">
+    <div class="section-label">Carupgrade</div>
+    <h1>Handels- og Garantibestemmelser</h1>
+    <p class="updated">Sidst opdateret: 20. maj 2026</p>
+  </div>
+</header>
+
+<main class="legal-content">
+  <article class="legal-card">
+    <section class="legal-section">
+      <h2>1. Virksomhedsoplysninger</h2>
+      <div class="contact-block">
+        Carupgrade<br>
+        Violvej 10<br>
+        3500 Værløse<br>
+        CVR-nr.: 46080009<br>
+        Telefon: <a href="tel:+4531147737">31 14 77 37</a><br>
+        E-mail: <a href="mailto:info@carupgrade.dk">info@carupgrade.dk</a><br>
+        Hjemmeside: <a href="https://www.carupgrade.dk">www.carupgrade.dk</a>
+      </div>
+    </section>
+
+    <section class="legal-section">
+      <h2>2. Generelt</h2>
+      <p>Disse handelsbetingelser gælder for alle aftaler indgået mellem Carupgrade og kunden i forbindelse med bestilling af ydelser, reparationer, montering og/eller køb af reservedele og produkter – uanset om aftalen indgås via hjemmeside, telefon, e-mail, kontaktformular eller anden skriftlig kommunikation.</p>
+      <p>Ved at afgive en bestilling eller indgå en aftale med Carupgrade accepterer kunden disse handelsbetingelser. Vi anbefaler derfor, at kunden læser betingelserne grundigt igennem inden bestilling.</p>
+      <p>Carupgrade udfører arbejde for både private og erhvervskunder.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>3. Vores ydelser</h2>
+      <p>Carupgrade er et udekørende mekanisk værksted, der tilbyder reparation og service af biler på kundens adresse eller efter nærmere aftale.</p>
+      <p>Vores ydelser omfatter blandt andet:</p>
+      <ul>
+        <li>Mekanisk reparation af biler</li>
+        <li>Fejlfinding og vurdering af bilens tilstand</li>
+        <li>Udskiftning og montering af reservedele</li>
+        <li>Salg af reservedele i forbindelse med reparationer</li>
+        <li>Tilbudsgivning</li>
+        <li>Booking af tid</li>
+        <li>Besvarelse af kundehenvendelser via telefon, e-mail og kontaktformular</li>
+      </ul>
+      <p>Carupgrade forbeholder sig retten til at afvise opgaver, som vurderes at ligge uden for vores kompetenceområde, eller som af sikkerhedsmæssige, tekniske eller praktiske årsager ikke kan udføres forsvarligt.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>4. Bestilling og booking</h2>
+      <p>Booking og bestilling kan foretages via følgende kanaler:</p>
+      <ul>
+        <li>Hjemmeside: <a href="https://www.carupgrade.dk">www.carupgrade.dk</a></li>
+        <li>Telefon: <a href="tel:+4531147737">31 14 77 37</a></li>
+        <li>E-mail: <a href="mailto:info@carupgrade.dk">info@carupgrade.dk</a></li>
+      </ul>
+      <p>En booking anses som bindende, når kunden har modtaget en skriftlig bekræftelse fra Carupgrade. Bekræftelse kan ske via e-mail, SMS eller anden skriftlig kommunikation.</p>
+      <p>Det er kundens ansvar at sikre, at oplysningerne i bekræftelsen er korrekte, herunder adresse, kontaktoplysninger, biloplysninger, opgavebeskrivelse og aftalt tidspunkt.</p>
+      <p>Eventuelle fejl eller ændringer skal meddeles Carupgrade hurtigst muligt.</p>
+      <p>Carupgrade forbeholder sig retten til at afvise, ændre eller ombooke en bekræftet booking i særlige tilfælde, herunder ved sygdom, force majeure, manglende adgang til bilen, vejrforhold eller andre forhold, der gør det uforsvarligt eller umuligt at udføre arbejdet.</p>
+      <p>I sådanne tilfælde kontakter Carupgrade kunden hurtigst muligt med henblik på at aftale en ny tid.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>5. Priser og betaling</h2>
+      <p>Alle priser er angivet i danske kroner og er inklusive 25% moms, medmindre andet tydeligt fremgår.</p>
+      <p>Den endelige pris aftales som udgangspunkt inden arbejdets påbegyndelse og fremgår af tilbud, ordrebekræftelse, skriftlig aftale eller faktura.</p>
+      <p>Eventuelle tillægsydelser, ekstraarbejde eller ændringer i opgavens omfang skal aftales med kunden og kan medføre prisjustering.</p>
+      <p>Betaling sker som udgangspunkt ved arbejdets afslutning, medmindre andet er aftalt skriftligt.</p>
+      <p>Carupgrade accepterer betaling via:</p>
+      <ul>
+        <li>MobilePay</li>
+        <li>Bankoverførsel</li>
+        <li>Betalingskort</li>
+        <li>Faktura efter særskilt aftale</li>
+      </ul>
+      <p>Ved betaling via faktura fastsættes betalingsfristen på den konkrete faktura. Hvis der ikke fremgår en særskilt betalingsfrist, forfalder betalingen straks ved modtagelse af fakturaen.</p>
+      <p>Ved forsinket betaling forbeholder Carupgrade sig retten til at opkræve rykkergebyr og morarenter i henhold til gældende regler.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>6. Aflysning og ændring af booking</h2>
+      <p>Ønsker kunden at aflyse eller ændre en booking, skal Carupgrade kontaktes hurtigst muligt og senest 48 timer før det aftalte tidspunkt.</p>
+      <p>Ved aflysning gælder følgende:</p>
+      <ul>
+        <li>Aflysning mere end 48 timer før aftalt tid: gratis</li>
+        <li>Aflysning mindre end 48 timer før aftalt tid: Carupgrade forbeholder sig retten til at opkræve et rimeligt aflysningsgebyr</li>
+        <li>Udeblivelse uden varsel: kan faktureres som for sen aflysning</li>
+      </ul>
+      <p>Hvis Carupgrade forgæves møder op på den aftalte adresse, fordi bilen ikke er tilgængelig, kunden ikke kan kontaktes, eller de nødvendige arbejdsforhold ikke er til stede, kan Carupgrade opkræve betaling for forgæves kørsel og afsat tid.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>7. Udførelse af arbejde</h2>
+      <p>Alt arbejde udføres fagligt korrekt og med udgangspunkt i almindelig god værkstedspraksis.</p>
+      <p>For at sikre korrekt udførelse af arbejdet skal kunden:</p>
+      <ul>
+        <li>Sørge for, at bilen er tilgængelig på det aftalte tidspunkt og den aftalte adresse</li>
+        <li>Sikre, at der er forsvarlig adgang og tilstrækkelig plads til at udføre arbejdet</li>
+        <li>Informere Carupgrade om kendte fejl, tidligere reparationer, advarselslamper, eksisterende skader eller særlige forhold ved bilen</li>
+        <li>Oplyse korrekt registreringsnummer, kilometerstand og relevante biloplysninger</li>
+        <li>Sikre, at bilen lovligt og sikkert kan repareres på den aftalte lokation</li>
+      </ul>
+      <p>Carupgrade er ikke ansvarlig for fejl, skader eller forsinkelser, der skyldes mangelfulde, ukorrekte eller tilbageholdte oplysninger fra kunden.</p>
+      <p>Eventuelle synlige forbehold, eksisterende fejl eller skader kan noteres før arbejdets påbegyndelse.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>8. Reklamation</h2>
+      <p>Hvis kunden opdager en fejl ved det udførte arbejde eller ved leverede reservedele, skal kunden kontakte Carupgrade hurtigst muligt og inden rimelig tid efter, at fejlen er eller burde være konstateret.</p>
+      <p>Reklamation skal fremsættes skriftligt til:</p>
+      <div class="contact-block">
+        <a href="mailto:info@carupgrade.dk">info@carupgrade.dk</a>
+      </div>
+      <p>Reklamationen bør indeholde:</p>
+      <ul>
+        <li>Beskrivelse af den konstaterede fejl</li>
+        <li>Billed- eller videodokumentation, hvis muligt</li>
+        <li>Kopi af faktura eller ordrebekræftelse</li>
+        <li>Bilens registreringsnummer</li>
+        <li>Bilens kilometerstand</li>
+        <li>Oplysning om hvornår fejlen blev konstateret</li>
+      </ul>
+      <p>Reklamationsretten kan bortfalde helt eller delvist, hvis:</p>
+      <ul>
+        <li>Fejlen skyldes forkert brug, misligholdelse eller mangelfuld vedligeholdelse</li>
+        <li>Kunden selv eller tredjepart har forsøgt at udbedre fejlen uden forudgående aftale med Carupgrade</li>
+        <li>Fejlen skyldes normal slitage eller ælde</li>
+        <li>Fejlen skyldes forhold, der ikke kan henføres til Carupgrades arbejde eller leverede reservedele</li>
+      </ul>
+      <p>Carupgrade behandler reklamationer hurtigst muligt og bestræber sig på at vende tilbage inden for 5 hverdage efter modtagelse af tilstrækkelig dokumentation.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>9. Ansvarsbegrænsning</h2>
+      <p>Carupgrade er ansvarlig for skader, der direkte kan tilskrives fejl eller forsømmelse fra Carupgrades side, i overensstemmelse med dansk rets almindelige erstatningsregler.</p>
+      <p>Carupgrade er ikke ansvarlig for:</p>
+      <ul>
+        <li>Indirekte tab</li>
+        <li>Driftstab</li>
+        <li>Tabt fortjeneste</li>
+        <li>Øvrige følgeskader</li>
+        <li>Skader opstået som følge af force majeure eller forhold uden for Carupgrades kontrol</li>
+        <li>Skader forårsaget af mangelfulde eller ukorrekte oplysninger fra kunden</li>
+        <li>Forudbestående fejl eller skader på køretøjet, som ikke er relateret til Carupgrades arbejde</li>
+        <li>Fejl, der skyldes tidligere reparationer udført af kunden eller tredjepart</li>
+      </ul>
+      <p>Eventuelle erstatningskrav mod Carupgrade kan som udgangspunkt ikke overstige værdien af den fakturerede ydelse eller det leverede produkt, medmindre andet følger af ufravigelig lovgivning.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>10. Fortrydelsesret</h2>
+      <p>Forbrugere har som udgangspunkt 14 dages fortrydelsesret ved fjernsalg i henhold til forbrugeraftalelovens regler.</p>
+      <p>Hvis kunden ønsker, at arbejdet påbegyndes inden fortrydelsesfristens udløb, kan fortrydelsesretten bortfalde helt eller delvist, når kunden udtrykkeligt har accepteret, at arbejdet påbegyndes, og at fortrydelsesretten bortfalder ved fuld udførelse af arbejdet.</p>
+      <p>Hvis arbejdet allerede er påbegyndt efter kundens udtrykkelige ønske, kan kunden blive forpligtet til at betale for den del af arbejdet, der allerede er udført.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>11. Garantiens omfang</h2>
+      <p>Carupgrade står bag kvaliteten af det arbejde, vi udfører, og de komponenter vi anvender.</p>
+      <p>Carupgrade tilbyder 2 års garanti på nye reservedele og monterede komponenter, herefter kaldet “Reservedele”, der viser sig at være fejlbehæftede som følge af fabrikations- eller materialefejl.</p>
+      <p>Garantien er målrettet reelle fejl ved produktet og gælder derfor ikke i følgende situationer:</p>
+      <h3>Produktets tilstand og brug</h3>
+      <p>Garantien dækker ikke:</p>
+      <ul>
+        <li>Naturlig slitage og ælde som følge af normal anvendelse</li>
+        <li>Forbrugsvarer som eksempelvis filtre, pærer, remme, væsker og lignende</li>
+        <li>Værktøj, hjælpematerialer og engangsmaterialer</li>
+        <li>Skader opstået ved fejlmontage udført af kunden eller tredjepart</li>
+        <li>Skader opstået ved fejlbetjening eller forkert til- og frakobling</li>
+        <li>Skader som følge af misligholdelse, overlast eller skødesløs behandling</li>
+        <li>Mangelfuld vedligeholdelse</li>
+        <li>Brug af forkert brændstof, olie, væsker eller smøremidler</li>
+        <li>Ydre påvirkninger såsom uheld, hærværk, stenslag, vand, frost, brand eller vejrrelaterede skader</li>
+        <li>Fejl der skyldes andre defekte komponenter på bilen, som ikke er leveret eller monteret af Carupgrade</li>
+      </ul>
+      <h3>Følgeskader og kompensation</h3>
+      <p>Garantien dækker ikke:</p>
+      <ul>
+        <li>Indirekte følgeskader af nogen art</li>
+        <li>Driftstab, tabt fortjeneste eller andre økonomiske tab</li>
+        <li>Gener, tidstab eller tab som følge af defekte Reservedele</li>
+        <li>Udgifter til lånebil, transport, bugsering eller lignende, medmindre dette er aftalt skriftligt</li>
+        <li>Arbejdsomkostninger i forbindelse med garantireparationer, medmindre andet er aftalt skriftligt eller følger af ufravigelig lovgivning</li>
+      </ul>
+      <p>Hvis en garantisag godkendes, afgør Carupgrade, om kunden kompenseres ved:</p>
+      <ul>
+        <li>Udbedring af fejlen</li>
+        <li>Udskiftning af den defekte Reservedel</li>
+        <li>Levering af en erstatningsvare af tilsvarende type og kvalitet</li>
+        <li>Kreditering af den oprindelige fakturapris for den defekte Reservedel</li>
+      </ul>
+    </section>
+
+    <section class="legal-section">
+      <h2>12. Garantiperiodens varighed</h2>
+      <p>Garantien løber i 2 år fra den fakturadato, som Carupgrade har udstedt i forbindelse med købet, monteringen eller reparationen.</p>
+      <p>For at være omfattet af garantien skal fejlen eller defekten være:</p>
+      <ul>
+        <li>Konstateret inden for garantiperioden</li>
+        <li>Anmeldt skriftligt til Carupgrade inden garantiperiodens udløb</li>
+        <li>Dokumenteret med faktura, registreringsnummer, kilometerstand og relevant fejlbeskrivelse</li>
+      </ul>
+      <p>Hvis der i garantiperioden foretages udbedring eller udskiftning af Reservedele, gælder garantien for den udskiftede Reservedel i henhold til den oprindelige garantiperiode, medmindre andet aftales skriftligt eller følger af ufravigelig lovgivning.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>13. Forudsætninger for garantidækning</h2>
+      <p>For at garantien er gyldig, skal følgende betingelser være opfyldt:</p>
+      <ul>
+        <li>Bilen skal være vedligeholdt i overensstemmelse med fabrikantens anvisninger</li>
+        <li>Serviceintervaller, herunder olieskift og planlagt service, skal være overholdt</li>
+        <li>De monterede Reservedele må udelukkende anvendes til det formål, de er beregnet til</li>
+        <li>Bilen må ikke være anvendt på en måde, der overstiger normal og forsvarlig brug</li>
+        <li>Kunden skal kunne dokumentere relevant service og vedligeholdelse, hvis dette er nødvendigt for vurdering af garantisagen</li>
+        <li>Kunden må ikke selv eller via tredjepart have forsøgt at udbedre fejlen uden forudgående aftale med Carupgrade</li>
+      </ul>
+      <p>Manglende overholdelse af ovenstående kan medføre, at garantien bortfalder helt eller delvist.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>14. Kundens lovbestemte rettigheder</h2>
+      <p>Disse handelsbetingelser og garantibestemmelser begrænser ikke de ufravigelige rettigheder, kunden har som forbruger efter dansk lovgivning, herunder reglerne i købeloven og forbrugeraftaleloven.</p>
+      <p>Garantien er et supplement til kundens lovbestemte rettigheder og erstatter ikke reklamationsretten.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>15. Forsikring</h2>
+      <p>Carupgrade er dækket af relevant erhvervs- og produktansvarsforsikring.</p>
+      <p>Skader, der skyldes fejl fra Carupgrades side, håndteres inden for forsikringens rammer og betingelser.</p>
+      <p>Carupgrade anbefaler, at kunden til enhver tid har bilen ansvarsforsikret og, hvor relevant, kaskoforsikret.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>16. Persondatapolitik</h2>
+      <p>Carupgrade behandler kundens personoplysninger i overensstemmelse med databeskyttelsesreglerne.</p>
+      <p>Vi indsamler og behandler personoplysninger til følgende formål:</p>
+      <ul>
+        <li>Gennemførelse og administration af den aftalte ydelse</li>
+        <li>Udarbejdelse af tilbud, ordrebekræftelse og faktura</li>
+        <li>Kommunikation vedrørende kundens opgave</li>
+        <li>Booking, kundeservice og opfølgning</li>
+        <li>Dokumentation i forbindelse med reklamationer og garantisager</li>
+      </ul>
+      <p>Personoplysninger kan omfatte navn, adresse, telefonnummer, e-mail, biloplysninger, registreringsnummer, fakturaoplysninger og øvrige oplysninger, som kunden selv giver til Carupgrade.</p>
+      <p>Oplysninger deles ikke med tredjepart uden kundens samtykke, medmindre det er nødvendigt for at opfylde aftalen, håndtere betaling, opfylde lovkrav eller behandle en reklamations- eller forsikringssag.</p>
+      <p>Kunden har ret til at anmode om:</p>
+      <ul>
+        <li>Indsigt i registrerede oplysninger</li>
+        <li>Rettelse af forkerte oplysninger</li>
+        <li>Sletning af oplysninger, hvor dette er muligt efter gældende regler</li>
+        <li>Begrænsning af behandling</li>
+        <li>Indsigelse mod behandling, hvor dette følger af gældende regler</li>
+      </ul>
+      <p>Henvendelser om persondata kan ske til:</p>
+      <div class="contact-block">
+        <a href="mailto:info@carupgrade.dk">info@carupgrade.dk</a>
+      </div>
+    </section>
+
+    <section class="legal-section">
+      <h2>17. Ændring af handelsbetingelser</h2>
+      <p>Carupgrade forbeholder sig retten til at opdatere og ændre disse handelsbetingelser og garantibestemmelser.</p>
+      <p>Ændringer træder i kraft fra den dato, de offentliggøres på <a href="https://www.carupgrade.dk">www.carupgrade.dk</a>.</p>
+      <p>Aftaler indgået før en ændring reguleres af de betingelser, der var gældende på aftaletidspunktet.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>18. Lovvalg, værneting og klagemuligheder</h2>
+      <p>Disse handelsbetingelser er underlagt dansk ret.</p>
+      <p>Eventuelle tvister søges først løst i mindelighed mellem kunden og Carupgrade. Hvis tvisten ikke kan løses i mindelighed, kan sagen indbringes for de kompetente danske domstole efter gældende regler.</p>
+      <p>Som forbruger kan kunden desuden have mulighed for at klage til relevante forbrugerklagemyndigheder.</p>
+      <p>Klagen kan indgives via:</p>
+      <div class="contact-block">
+        Forbrugerklagenævnet / Nævnenes Hus<br>
+        Carl Jacobsens Vej 35<br>
+        2500 Valby<br>
+        <a href="https://www.forbrug.dk">www.forbrug.dk</a>
+      </div>
+      <p>Ved onlinehandel kan EU’s online klageportal også anvendes:</p>
+      <p><a href="https://www.ec.europa.eu/odr">www.ec.europa.eu/odr</a></p>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="../assets/carupgrade-logo.png" alt="CarUpgrade.dk">
+      </div>
+      <p>Professionelt mobilt værksted der kommer til dig på Sjælland. Uddannede mekanikere, gennemsigtige priser og garanti på alt arbejde.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="/#services">Rutinemæssig service</a></li>
+        <li><a href="/#services">Bremser &amp; dæk</a></li>
+        <li><a href="/#services">Motordiagnostik</a></li>
+        <li><a href="/#services">El-system &amp; batteri</a></li>
+        <li><a href="/#services">Reparation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Navigation</h5>
+      <ul>
+        <li><a href="/#hjem">Forside</a></li>
+        <li><a href="/#hvordan">Sådan fungerer det</a></li>
+        <li><a href="/#omOs">Om CarUpgrade</a></li>
+        <li><a href="/#anmeldelser">Anmeldelser</a></li>
+        <li><a href="/#reparationer">Reparationer</a></li>
+        <li><a href="/#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Kundecenter</h5>
+      <ul>
+        <li><a href="/handels-og-garantibestemmelser/">Handels- og Garantibestemmelser</a></li>
+        <li><a href="/privatlivspolitik/">Privatlivspolitik</a></li>
+        <li><a href="/cookiepolitik/">Cookiepolitik</a></li>
+        <li><a href="https://dk.trustpilot.com/review/carupgrade.dk" target="_blank" rel="noopener">Trustpilot anmeldelser</a></li>
+        <li><a href="/#kontakt">Få et tilbud</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="footer-cvr-line">CVR: 46080009</p>
+  <div class="footer-bottom">
+    <p>© 2025 CarUpgrade. Alle rettigheder forbeholdes.</p>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+</script>
+</body>
+</html>
