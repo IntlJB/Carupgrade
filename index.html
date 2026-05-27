@@ -1441,7 +1441,7 @@
       </div>
     </div>
 
-    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mlgzygqg" method="POST" data-reveal>
+    <form class="contact-form" id="contactForm" action="/api/contact" method="POST" data-reveal>
       <div class="form-row">
         <div class="form-group">
           <label for="name">Navn *</label>
@@ -1478,7 +1478,6 @@
         <label for="message">Beskrivelse af opgaven *</label>
         <textarea id="message" name="message" placeholder="Beskriv problemet eller opgaven så præcist som muligt. Gerne inkluder kilometerstand og eventuelle fejlkoder..." required></textarea>
       </div>
-      <input type="hidden" name="_subject" value="Ny forespørgsel fra CarUpgrade.dk">
       <button type="submit" class="form-submit">Send uforpligtende forespørgsel →</button>
       <div class="form-status" role="status" aria-live="polite"></div>
     </form>
@@ -1546,7 +1545,7 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   reveals.forEach(el => observer.observe(el));
 
-  // Formspree AJAX submit
+  // Contact form AJAX submit
   const contactForm = document.getElementById('contactForm');
   const submitButton = contactForm.querySelector('.form-submit');
   const formStatus = contactForm.querySelector('.form-status');
@@ -1567,22 +1566,30 @@
     formStatus.textContent = '';
 
     try {
+      const formData = new FormData(contactForm);
+      const payload = Object.fromEntries(formData.entries());
+
       const response = await fetch(contactForm.action, {
         method: 'POST',
-        body: new FormData(contactForm),
-        headers: { Accept: 'application/json' }
+        body: JSON.stringify(payload),
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        }
       });
 
-      if (!response.ok) throw new Error('Formspree afviste beskeden');
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || !result.ok) throw new Error('Beskeden blev ikke sendt');
 
       contactForm.reset();
       submitButton.textContent = 'Forespørgsel sendt';
       submitButton.style.background = '#1a7a4a';
-      showFormStatus('Tak for din forespørgsel. Vi har modtaget dine oplysninger og vender tilbage med et uforpligtende svar inden for 24 timer på hverdage.', 'success');
+      showFormStatus(result.message || 'Tak for din henvendelse. Vi vender tilbage hurtigst muligt ellers ring direkte på +45 31 14 77 37.', 'success');
     } catch (error) {
       submitButton.textContent = defaultSubmitText;
       submitButton.style.background = '';
-      showFormStatus('Der opstod desværre en fejl, og din forespørgsel blev ikke sendt. Prøv igen om lidt, eller kontakt os direkte på info@carupgrade.dk.', 'error');
+      showFormStatus('Der opstod en fejl. Prøv igen eller kontakt os direkte på info@carupgrade.dk eller ring til os på +45 31 14 77 37.', 'error');
     } finally {
       submitButton.disabled = false;
     }
