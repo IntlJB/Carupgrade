@@ -1,7 +1,14 @@
+import { randomUUID } from 'node:crypto';
 import { Resend } from 'resend';
 
 const successMessage = 'Tak for din henvendelse. Vi vender tilbage hurtigst muligt ellers ring direkte på +45 31 14 77 37.';
 const errorMessage = 'Der opstod en fejl. Prøv igen eller kontakt os direkte på info@carupgrade.dk eller ring til os på +45 31 14 77 37.';
+const spamSuccessMessage = successMessage;
+const rateLimitWindowMs = 10 * 60 * 1000;
+const maxRequestsPerWindow = 4;
+const rateLimitStore = globalThis.__carupgradeRateLimitStore || new Map();
+
+globalThis.__carupgradeRateLimitStore = rateLimitStore;
 
 function setSecurityHeaders(res) {
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
@@ -32,6 +39,73 @@ function getField(body, ...keys) {
   return '';
 }
 
+function getClientIp(req) {
+  const forwardedFor = req.headers['x-forwarded-for'];
+  const firstForwardedIp = Array.isArray(forwardedFor) ? forwardedFor[0] : forwardedFor;
+
+  return (
+    req.headers['cf-connecting-ip'] ||
+    req.headers['x-real-ip'] ||
+    firstForwardedIp?.split(',')[0]?.trim() ||
+    req.socket?.remoteAddress ||
+    'unknown'
+  );
+}
+
+function isRateLimited(identifier) {
+  const now = Date.now();
+  const current = rateLimitStore.get(identifier);
+
+  for (const [key, value] of rateLimitStore.entries()) {
+    if (value.resetAt <= now) rateLimitStore.delete(key);
+  }
+
+  if (!current || current.resetAt <= now) {
+    rateLimitStore.set(identifier, { count: 1, resetAt: now + rateLimitWindowMs });
+    return false;
+  }
+
+  current.count += 1;
+  rateLimitStore.set(identifier, current);
+
+  return current.count > maxRequestsPerWindow;
+}
+
+function isSameOrigin(req) {
+  const origin = req.headers.origin;
+  if (!origin) return true;
+
+  const host = req.headers['x-forwarded-host'] || req.headers.host;
+  if (!host) return false;
+
+  try {
+    return new URL(origin).host === host;
+  } catch (error) {
+    return false;
+  }
+}
+
+async function verifyTurnstile(token, ip) {
+  if (!process.env.TURNSTILE_SECRET_KEY || !token) return false;
+
+  const body = new URLSearchParams({
+    secret: process.env.TURNSTILE_SECRET_KEY,
+    response: token,
+    remoteip: ip,
+    idempotency_key: randomUUID()
+  });
+
+  const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    body
+  });
+
+  if (!response.ok) return false;
+
+  const result = await response.json();
+  return Boolean(result.success && result.action === 'contact');
+}
+
 function escapeHtml(value) {
   return value
     .replaceAll('&', '&amp;')
@@ -57,6 +131,10 @@ export default async function handler(req, res) {
     return res.status(500).json({ ok: false, message: errorMessage });
   }
 
+  if (!isSameOrigin(req)) {
+    return res.status(403).json({ ok: false, message: errorMessage });
+  }
+
   let body;
   try {
     body = await readJsonBody(req);
@@ -70,9 +148,27 @@ export default async function handler(req, res) {
   const message = getField(body, 'message', 'besked');
   const service = getField(body, 'service', 'ydelse');
   const car = getField(body, 'car', 'nummerplade');
+  const honeypot = getField(body, 'website', 'url', 'company');
+  const turnstileToken = getField(body, 'cf-turnstile-response', 'turnstileToken');
+
+  if (honeypot) {
+    return res.status(200).json({ ok: true, message: spamSuccessMessage });
+  }
+
+  const clientIp = getClientIp(req);
+
+  if (isRateLimited(clientIp)) {
+    return res.status(429).json({ ok: false, message: 'Der er sendt for mange forespørgsler. Prøv igen om lidt.' });
+  }
 
   if (!name || !email || !message) {
     return res.status(400).json({ ok: false, message: 'Navn, email og besked skal udfyldes.' });
+  }
+
+  const turnstileIsValid = await verifyTurnstile(turnstileToken, clientIp);
+
+  if (!turnstileIsValid) {
+    return res.status(400).json({ ok: false, message: 'Sikkerhedstjekket kunne ikke gennemføres. Genindlæs siden og prøv igen.' });
   }
 
   const html = [

@@ -982,6 +982,19 @@
   .form-submit:hover { background: var(--red-dark); }
   .form-submit:disabled { cursor: not-allowed; opacity: 0.72; }
 
+  .form-honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .turnstile-wrap {
+    min-height: 65px;
+    margin: 0.25rem 0 1rem;
+  }
+
   .form-status {
     display: none;
     margin-top: 1rem;
@@ -1145,6 +1158,7 @@
     .repair-photo, .repair-photo.featured { min-height: 300px; }
   }
 </style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 </head>
 <body>
 
@@ -1564,6 +1578,13 @@
         <label for="message">Beskrivelse af opgaven *</label>
         <textarea id="message" name="message" placeholder="Beskriv problemet eller opgaven så præcist som muligt. Gerne inkluder kilometerstand og eventuelle fejlkoder..." required></textarea>
       </div>
+      <div class="form-honeypot" aria-hidden="true">
+        <label for="website">Website</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="turnstile-wrap">
+        <div id="turnstileWidget"></div>
+      </div>
       <button type="submit" class="form-submit">Send uforpligtende forespørgsel →</button>
       <div class="form-status" role="status" aria-live="polite"></div>
     </form>
@@ -1636,11 +1657,62 @@
   const submitButton = contactForm.querySelector('.form-submit');
   const formStatus = contactForm.querySelector('.form-status');
   const defaultSubmitText = submitButton.textContent;
+  let turnstileWidgetId = null;
 
   const showFormStatus = (message, type) => {
     formStatus.textContent = message;
     formStatus.className = `form-status is-visible is-${type}`;
   };
+
+  const resetTurnstile = () => {
+    if (window.turnstile && turnstileWidgetId !== null) {
+      window.turnstile.reset(turnstileWidgetId);
+    }
+  };
+
+  const renderTurnstile = async () => {
+    submitButton.disabled = true;
+
+    try {
+      const response = await fetch('/api/turnstile-config', {
+        headers: { Accept: 'application/json' }
+      });
+      const config = await response.json();
+
+      if (!response.ok || !config.ok || !config.siteKey) {
+        throw new Error('Turnstile sitekey mangler');
+      }
+
+      const waitForTurnstile = () => new Promise((resolve, reject) => {
+        let attempts = 0;
+        const timer = window.setInterval(() => {
+          attempts += 1;
+          if (window.turnstile) {
+            window.clearInterval(timer);
+            resolve();
+          } else if (attempts > 100) {
+            window.clearInterval(timer);
+            reject(new Error('Turnstile blev ikke indlæst'));
+          }
+        }, 100);
+      });
+
+      await waitForTurnstile();
+
+      turnstileWidgetId = window.turnstile.render('#turnstileWidget', {
+        sitekey: config.siteKey,
+        theme: 'dark',
+        action: 'contact'
+      });
+
+      submitButton.disabled = false;
+    } catch (error) {
+      submitButton.textContent = 'Formular midlertidigt utilgængelig';
+      showFormStatus('Sikkerhedstjekket kunne ikke indlæses. Kontakt os direkte på info@carupgrade.dk eller ring til os på +45 31 14 77 37.', 'error');
+    }
+  };
+
+  renderTurnstile();
 
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -1669,10 +1741,12 @@
       if (!response.ok || !result.ok) throw new Error('Beskeden blev ikke sendt');
 
       contactForm.reset();
+      resetTurnstile();
       submitButton.textContent = 'Forespørgsel sendt';
       submitButton.style.background = '#1a7a4a';
       showFormStatus(result.message || 'Tak for din henvendelse. Vi vender tilbage hurtigst muligt ellers ring direkte på +45 31 14 77 37.', 'success');
     } catch (error) {
+      resetTurnstile();
       submitButton.textContent = defaultSubmitText;
       submitButton.style.background = '';
       showFormStatus('Der opstod en fejl. Prøv igen eller kontakt os direkte på info@carupgrade.dk eller ring til os på +45 31 14 77 37.', 'error');
