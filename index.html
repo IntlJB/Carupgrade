@@ -43,6 +43,7 @@
       "telephone": "+45 31 14 77 37",
       "email": "info@carupgrade.dk",
       "vatID": "DK46080009",
+      "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Violvej 10",
@@ -90,7 +91,53 @@
         "Motordiagnostik",
         "El-system og batteri",
         "Bilreparation"
-      ]
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "CarUpgrade services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Rutinemæssig service",
+              "description": "Olieskift, filterskift, tændrørsudskiftning, serviceeftersyn og synstjek udført hos kunden."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Bremser og dæk",
+              "description": "Udskiftning og kontrol af bremseklodser, bremseskiver og dæk."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Motordiagnostik",
+              "description": "OBD-fejlfinding og diagnose af fejlkoder og elektroniske problemer."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "El-system og batteri",
+              "description": "Fejlfinding på elektriske systemer, starter, alternator og batteri."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Reparationer på værkstedet",
+              "description": "Afhentning og reparation på værksted ved opgaver, der kræver lift eller specialudstyr."
+            }
+          }
+        ]
+      }
     }
   ]
 }
@@ -153,6 +200,7 @@
     line-height: 1;
   }
 
+  .nav-logo picture,
   .nav-logo img {
     width: 138px;
     height: auto;
@@ -221,7 +269,7 @@
     inset: 0;
     background:
       linear-gradient(135deg, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.8) 60%, rgba(10,10,10,0.6) 100%),
-      url('/assets/repair-work-2.jpeg') center/cover no-repeat;
+      image-set(url('/assets/repair-work-2.webp') type('image/webp'), url('/assets/repair-work-2.jpeg') type('image/jpeg')) center/cover no-repeat;
   }
 
   .hero-accent {
@@ -822,9 +870,14 @@
     min-height: 660px;
   }
 
+  .repair-photo picture,
   .repair-photo img {
     width: 100%;
     height: 100%;
+    display: block;
+  }
+
+  .repair-photo img {
     object-fit: cover;
     transition: transform 0.45s ease;
   }
@@ -867,6 +920,57 @@
     color: var(--gray-light);
     font-weight: 300;
     line-height: 1.8;
+  }
+
+  .faq {
+    background: var(--black);
+  }
+
+  .faq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .faq-item {
+    background: var(--dark);
+    padding: 2rem;
+    min-height: 100%;
+  }
+
+  .faq-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.18rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+  }
+
+  .faq-item p {
+    color: var(--gray-light);
+    font-size: 0.92rem;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .faq-cta {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
   }
 
   .contact { background: var(--dark); }
@@ -1042,6 +1146,7 @@
     border-radius: 2px;
   }
 
+  .footer-logo picture,
   .footer-logo img {
     width: 170px;
     height: auto;
@@ -1144,6 +1249,7 @@
     .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
     .repairs-gallery { grid-template-columns: 1fr 1fr; }
     .repair-photo.featured { grid-row: span 1; min-height: 320px; }
+    .faq-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
     section { padding: 70px 5%; }
   }
@@ -1156,6 +1262,8 @@
     .repairs-header { flex-direction: column; align-items: flex-start; }
     .repairs-gallery { grid-template-columns: 1fr; }
     .repair-photo, .repair-photo.featured { min-height: 300px; }
+    .faq-header { flex-direction: column; align-items: flex-start; }
+    .faq-item { padding: 1.5rem; }
   }
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
@@ -1165,13 +1273,17 @@
 <!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo" aria-label="CarUpgrade">
-    <img src="assets/carupgrade-logo.png" alt="CarUpgrade.dk" width="1476" height="493" decoding="async">
+    <picture>
+      <source srcset="assets/carupgrade-logo.webp" type="image/webp">
+      <img src="assets/carupgrade-logo.png" alt="CarUpgrade.dk" width="1476" height="493" decoding="async">
+    </picture>
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#services">Services</a></li>
     <li><a href="#hvordan">Sådan fungerer det</a></li>
     <li><a href="#anmeldelser">Anmeldelser</a></li>
     <li><a href="#reparationer">Reparationer</a></li>
+    <li><a href="/FAQ/">FAQ</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
     <li><a href="#kontakt" class="nav-cta">Få et tilbud</a></li>
   </ul>
@@ -1450,28 +1562,40 @@
 
   <div class="repairs-gallery">
     <figure class="repair-photo featured" data-reveal>
-      <img src="assets/repair-work-2.jpeg" alt="CarUpgrade servicevogn og bil under reparation" width="1536" height="2048" loading="lazy" decoding="async">
+      <picture>
+        <source srcset="assets/repair-work-2.webp" type="image/webp">
+        <img src="assets/repair-work-2.jpeg" alt="CarUpgrade servicevogn og bil under reparation" width="1536" height="2048" loading="lazy" decoding="async">
+      </picture>
       <figcaption class="repair-caption">
         <strong>Værkstedet med på farten</strong>
         <span>Fuldt udstyret servicevogn klar til opgaven hjemme, på arbejde eller hvor bilen holder.</span>
       </figcaption>
     </figure>
     <figure class="repair-photo" data-reveal data-reveal-delay="1">
-      <img src="assets/repair-work-3.jpeg" alt="Diagnoseudstyr til fejlfinding på bil" width="1536" height="2048" loading="lazy" decoding="async">
+      <picture>
+        <source srcset="assets/repair-work-3.webp" type="image/webp">
+        <img src="assets/repair-work-3.jpeg" alt="Diagnoseudstyr til fejlfinding på bil" width="1536" height="2048" loading="lazy" decoding="async">
+      </picture>
       <figcaption class="repair-caption">
         <strong>Præcis fejlfinding</strong>
         <span>Professionel diagnose, så fejlen findes hurtigt og løsningen bliver målrettet.</span>
       </figcaption>
     </figure>
     <figure class="repair-photo" data-reveal data-reveal-delay="2">
-      <img src="assets/repair-multimedia.jpeg" alt="Montering af multimedia i bil" width="1170" height="878" loading="lazy" decoding="async">
+      <picture>
+        <source srcset="assets/repair-multimedia.webp" type="image/webp">
+        <img src="assets/repair-multimedia.jpeg" alt="Montering af multimedia i bil" width="1170" height="878" loading="lazy" decoding="async">
+      </picture>
       <figcaption class="repair-caption">
         <strong>Montering med finish</strong>
         <span>Opgraderinger og reparationer udført ordentligt, rent og med blik for detaljen.</span>
       </figcaption>
     </figure>
     <figure class="repair-photo" data-reveal data-reveal-delay="1">
-      <img src="assets/repair-work-1.jpeg" alt="CarUpgrade servicevogn ude hos kunde" width="1536" height="1488" loading="lazy" decoding="async">
+      <picture>
+        <source srcset="assets/repair-work-1.webp" type="image/webp">
+        <img src="assets/repair-work-1.jpeg" alt="CarUpgrade servicevogn ude hos kunde" width="1536" height="1488" loading="lazy" decoding="async">
+      </picture>
       <figcaption class="repair-caption">
         <strong>Vi kommer til dig</strong>
         <span>Fleksibel hjælp på Sjælland, uden at du skal bruge dagen på værkstedsbesøg.</span>
@@ -1596,7 +1720,10 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <div class="footer-logo">
-        <img src="assets/carupgrade-logo.png" alt="CarUpgrade.dk" width="1476" height="493" loading="lazy" decoding="async">
+        <picture>
+          <source srcset="assets/carupgrade-logo.webp" type="image/webp">
+          <img src="assets/carupgrade-logo.png" alt="CarUpgrade.dk" width="1476" height="493" loading="lazy" decoding="async">
+        </picture>
       </div>
       <p>Professionelt mobilt værksted der kommer til dig på Sjælland. Uddannede mekanikere, gennemsigtige priser og garanti på alt arbejde.</p>
     </div>
@@ -1618,6 +1745,7 @@
         <li><a href="#omOs">Om CarUpgrade</a></li>
         <li><a href="#anmeldelser">Anmeldelser</a></li>
         <li><a href="#reparationer">Reparationer</a></li>
+        <li><a href="/FAQ/">FAQ</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
     </div>
@@ -1627,6 +1755,7 @@
         <li><a href="/handels-og-garantibestemmelser/">Handels- og Garantibestemmelser</a></li>
         <li><a href="/privatlivspolitik/">Privatlivspolitik</a></li>
         <li><a href="/cookiepolitik/">Cookiepolitik</a></li>
+        <li><a href="/FAQ/">Ofte stillede spørgsmål</a></li>
         <li><a href="https://dk.trustpilot.com/review/carupgrade.dk" target="_blank" rel="noopener">Trustpilot anmeldelser</a></li>
         <li><a href="#kontakt">Få et tilbud</a></li>
       </ul>

@@ -1,0 +1,30 @@
+{
+  "redirects": [
+    {
+      "source": "/faq",
+      "destination": "/FAQ/",
+      "permanent": true
+    },
+    {
+      "source": "/faq/",
+      "destination": "/FAQ/",
+      "permanent": true
+    },
+    {
+      "source": "/FAQ",
+      "destination": "/FAQ/",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.carupgrade.dk"
+        }
+      ],
+      "destination": "https://carupgrade.dk/$1",
+      "permanent": true
+    }
+  ]
+}
