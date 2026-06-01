@@ -1,6 +1,81 @@
 {
   "redirects": [
     {
+      "source": "/sitemap_index.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/local-sitemap.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/page-sitemap.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/product-sitemap.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/tilbudsberegner",
+      "destination": "/#kontakt",
+      "permanent": true
+    },
+    {
+      "source": "/tilbudsberegner/",
+      "destination": "/#kontakt",
+      "permanent": true
+    },
+    {
+      "source": "/om-carupgrade",
+      "destination": "/#omOs",
+      "permanent": true
+    },
+    {
+      "source": "/om-carupgrade/",
+      "destination": "/#omOs",
+      "permanent": true
+    },
+    {
+      "source": "/product/:path*",
+      "destination": "/#kontakt",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/:path*",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/cart",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/cart/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/checkout/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/my-account/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/author/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/kontakt",
       "destination": "/#kontakt",
       "permanent": true
