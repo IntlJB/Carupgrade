@@ -1,0 +1,20 @@
+{
+  "name": "CarUpgrade",
+  "short_name": "CarUpgrade",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "28x28",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicon.png",
+      "sizes": "28x28",
+      "type": "image/png"
+    }
+  ]
+}

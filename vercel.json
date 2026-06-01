@@ -1,6 +1,51 @@
 {
   "redirects": [
     {
+      "source": "/kontakt",
+      "destination": "/#kontakt",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/om-os",
+      "destination": "/#omOs",
+      "permanent": true
+    },
+    {
+      "source": "/anmeldelser",
+      "destination": "/#anmeldelser",
+      "permanent": true
+    },
+    {
+      "source": "/reparationer",
+      "destination": "/#reparationer",
+      "permanent": true
+    },
+    {
+      "source": "/handelsbetingelser",
+      "destination": "/handels-og-garantibestemmelser/",
+      "permanent": true
+    },
+    {
+      "source": "/garanti",
+      "destination": "/handels-og-garantibestemmelser/",
+      "permanent": true
+    },
+    {
+      "source": "/privatpolitik",
+      "destination": "/privatlivspolitik/",
+      "permanent": true
+    },
+    {
+      "source": "/cookies",
+      "destination": "/cookiepolitik/",
+      "permanent": true
+    },
+    {
       "source": "/faq",
       "destination": "/FAQ/",
       "permanent": true
@@ -14,6 +59,17 @@
       "source": "/FAQ",
       "destination": "/FAQ/",
       "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ]
 }
