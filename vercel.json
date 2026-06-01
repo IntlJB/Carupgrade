@@ -41,12 +41,12 @@
       "permanent": true
     },
     {
-      "source": "/product/:path*",
+      "source": "/product/(.*)",
       "destination": "/#kontakt",
       "permanent": true
     },
     {
-      "source": "/product-category/:path*",
+      "source": "/product-category/(.*)",
       "destination": "/#services",
       "permanent": true
     },
@@ -61,17 +61,17 @@
       "permanent": true
     },
     {
-      "source": "/checkout/:path*",
+      "source": "/checkout/(.*)",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/my-account/:path*",
+      "source": "/my-account/(.*)",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/author/:path*",
+      "source": "/author/(.*)",
       "destination": "/",
       "permanent": true
     },
