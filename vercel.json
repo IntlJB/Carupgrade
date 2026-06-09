@@ -21,6 +21,46 @@
       "permanent": true
     },
     {
+      "source": "/bil-mekaniker-hos-dig",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/bil-mekaniker-hos-dig/",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/category/(.*)",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privatlivspolitik/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "/privatlivspolitik/",
+      "permanent": true
+    },
+    {
+      "source": "/refund_returns",
+      "destination": "/handels-og-garantibestemmelser/",
+      "permanent": true
+    },
+    {
+      "source": "/refund_returns/",
+      "destination": "/handels-og-garantibestemmelser/",
+      "permanent": true
+    },
+    {
+      "source": "/8,8",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
       "source": "/tilbudsberegner",
       "destination": "/#kontakt",
       "permanent": true
@@ -134,6 +174,20 @@
       "source": "/FAQ",
       "destination": "/FAQ/",
       "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/wp-content/(.*)",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/wp-admin/(.*)",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/wp-(.*).php",
+      "destination": "/api/gone"
     }
   ],
   "headers": [
