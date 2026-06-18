@@ -23,23 +23,77 @@
 <meta property="og:image" content="https://carupgrade.dk/assets/repair-work-2.jpeg">
 <meta property="og:image:width" content="1536">
 <meta property="og:image:height" content="2048">
+<meta property="og:image:alt" content="CarUpgrade servicevogn og bil under reparation">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privatlivspolitik for Carupgrade.dk">
+<meta name="twitter:description" content="Læs hvordan CarUpgrade behandler personoplysninger ved henvendelser, tilbud, booking og service.">
+<meta name="twitter:image" content="https://carupgrade.dk/assets/repair-work-2.jpeg">
+<meta name="twitter:image:alt" content="CarUpgrade servicevogn og bil under reparation">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Privatlivspolitik for Carupgrade.dk",
-  "url": "https://carupgrade.dk/privatlivspolitik/",
-  "description": "CarUpgrades privatlivspolitik for behandling af personoplysninger.",
-  "inLanguage": "da-DK",
-  "isPartOf": {
-    "@id": "https://carupgrade.dk/#website"
-  },
-  "publisher": {
-    "@type": "AutoRepair",
-    "name": "CarUpgrade",
-    "url": "https://carupgrade.dk/"
-  }
+  "@graph": [
+    {
+      "@type": ["AutoRepair", "LocalBusiness"],
+      "@id": "https://carupgrade.dk/#business",
+      "name": "CarUpgrade",
+      "url": "https://carupgrade.dk/",
+      "telephone": "+45 31 14 77 37",
+      "email": "info@carupgrade.dk",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Violvej 10",
+        "postalCode": "3500",
+        "addressLocality": "Værløse",
+        "addressCountry": "DK"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://carupgrade.dk/#website",
+      "url": "https://carupgrade.dk/",
+      "name": "CarUpgrade",
+      "inLanguage": "da-DK",
+      "publisher": {
+        "@id": "https://carupgrade.dk/#business"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://carupgrade.dk/privatlivspolitik/#webpage",
+      "name": "Privatlivspolitik for Carupgrade.dk",
+      "url": "https://carupgrade.dk/privatlivspolitik/",
+      "description": "CarUpgrades privatlivspolitik for behandling af personoplysninger.",
+      "inLanguage": "da-DK",
+      "isPartOf": {
+        "@id": "https://carupgrade.dk/#website"
+      },
+      "publisher": {
+        "@id": "https://carupgrade.dk/#business"
+      },
+      "breadcrumb": {
+        "@id": "https://carupgrade.dk/privatlivspolitik/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://carupgrade.dk/privatlivspolitik/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "CarUpgrade",
+          "item": "https://carupgrade.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Privatlivspolitik",
+          "item": "https://carupgrade.dk/privatlivspolitik/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>

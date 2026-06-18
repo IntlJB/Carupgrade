@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" sizes="28x28" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/favicon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preload" as="image" href="/assets/repair-work-2.jpeg">
+<link rel="preload" as="image" href="/assets/repair-work-2.webp" type="image/webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -29,14 +29,17 @@
 <meta name="twitter:title" content="CarUpgrade | Professionelt mobilt værksted">
 <meta name="twitter:description" content="Bilservice og reparation hos dig på Sjælland.">
 <meta name="twitter:image" content="https://carupgrade.dk/assets/repair-work-1.jpeg">
+<meta name="twitter:image:alt" content="CarUpgrade servicevogn ude hos kunde">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "AutoRepair",
+      "@type": ["AutoRepair", "LocalBusiness"],
       "@id": "https://carupgrade.dk/#business",
       "name": "CarUpgrade",
+      "legalName": "Carupgrade",
+      "alternateName": "CarUpgrade.dk",
       "url": "https://carupgrade.dk/",
       "logo": "https://carupgrade.dk/assets/carupgrade-logo.png",
       "image": "https://carupgrade.dk/assets/repair-work-1.jpeg",
@@ -45,6 +48,7 @@
       "email": "info@carupgrade.dk",
       "vatID": "DK46080009",
       "priceRange": "$$",
+      "currenciesAccepted": "DKK",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Violvej 10",
@@ -52,10 +56,20 @@
         "addressLocality": "Værløse",
         "addressCountry": "DK"
       },
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Sjælland"
-      },
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Sjælland"
+        },
+        {
+          "@type": "City",
+          "name": "Værløse"
+        },
+        {
+          "@type": "City",
+          "name": "København"
+        }
+      ],
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -63,6 +77,26 @@
           "opens": "07:00",
           "closes": "16:00"
         }
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+45 31 14 77 37",
+          "email": "info@carupgrade.dk",
+          "contactType": "customer service",
+          "areaServed": "DK",
+          "availableLanguage": ["da-DK", "da"]
+        }
+      ],
+      "knowsAbout": [
+        "Mobilt værksted",
+        "Bilservice",
+        "Serviceeftersyn",
+        "Olieskift",
+        "Bremser",
+        "Motordiagnostik",
+        "Fejlfinding på bil",
+        "Bilreparation"
       ],
       "sameAs": [
         "https://dk.trustpilot.com/review/carupgrade.dk"
@@ -76,6 +110,29 @@
       "inLanguage": "da-DK",
       "publisher": {
         "@id": "https://carupgrade.dk/#business"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://carupgrade.dk/#webpage",
+      "url": "https://carupgrade.dk/",
+      "name": "CarUpgrade | Professionelt Mobilt Værksted – Vi Kommer Til Dig",
+      "description": "CarUpgrade tilbyder bilservice og reparation direkte hos dig – hjemme eller på arbejdet. Professionelt mobilt værksted på Sjælland.",
+      "inLanguage": "da-DK",
+      "isPartOf": {
+        "@id": "https://carupgrade.dk/#website"
+      },
+      "about": {
+        "@id": "https://carupgrade.dk/#business"
+      },
+      "mainEntity": {
+        "@id": "https://carupgrade.dk/#mobile-auto-repair"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://carupgrade.dk/assets/repair-work-1.jpeg",
+        "width": 1536,
+        "height": 1488
       }
     },
     {
@@ -139,6 +196,18 @@
           }
         ]
       }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://carupgrade.dk/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "CarUpgrade",
+          "item": "https://carupgrade.dk/"
+        }
+      ]
     }
   ]
 }
@@ -1749,6 +1818,7 @@
         <li><a href="/privatlivspolitik/">Privatlivspolitik</a></li>
         <li><a href="/cookiepolitik/">Cookiepolitik</a></li>
         <li><a href="/FAQ/">Ofte stillede spørgsmål</a></li>
+        <li><a href="/biludstyr-og-infotainment/">Biludstyr og infotainment</a></li>
         <li><a href="https://dk.trustpilot.com/review/carupgrade.dk" target="_blank" rel="noopener">Trustpilot anmeldelser</a></li>
         <li><a href="#kontakt">Få et tilbud</a></li>
       </ul>
