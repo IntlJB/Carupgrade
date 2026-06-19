@@ -42,3 +42,11 @@ test('legal pages describe consent-gated analytics without obsolete claims', asy
   assert.doesNotMatch(cookiePolicy, /anvender på nuværende tidspunkt heller ikke cookie-baserede statistik-/);
   assert.doesNotMatch(privacyPolicy, /På nuværende tidspunkt anvender Carupgrade ikke cookies/);
 });
+
+test('consent stylesheet contains responsive and keyboard-focus states', async () => {
+  const css = await readFile(path.join(root, 'assets/cookie-consent.css'), 'utf8');
+  assert.match(css, /position:\s*fixed/);
+  assert.match(css, /bottom:\s*0/);
+  assert.match(css, /:focus-visible/);
+  assert.match(css, /@media/);
+});
