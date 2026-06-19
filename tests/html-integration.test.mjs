@@ -10,7 +10,7 @@ async function findHtmlFiles(directory = root) {
   const files = [];
 
   for (const entry of entries) {
-    if (['.git', '.superpowers', 'node_modules'].includes(entry.name)) continue;
+    if (entry.name.startsWith('.') || entry.name === 'node_modules') continue;
     const absolutePath = path.join(directory, entry.name);
     if (entry.isDirectory()) files.push(...await findHtmlFiles(absolutePath));
     if (entry.isFile() && entry.name === 'index.html') files.push(absolutePath);
