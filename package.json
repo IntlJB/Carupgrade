@@ -1,5 +1,11 @@
 {
+  "scripts": {
+    "test": "node --test"
+  },
   "dependencies": {
     "resend": "^6.0.3"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
   }
 }
