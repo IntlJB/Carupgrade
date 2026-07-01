@@ -43,6 +43,13 @@ test('legal pages describe consent-gated analytics without obsolete claims', asy
   assert.doesNotMatch(privacyPolicy, /På nuværende tidspunkt anvender Carupgrade ikke cookies/);
 });
 
+test('homepage badge names the mobile workshop coverage areas', async () => {
+  const homepage = await readFile(path.join(root, 'index.html'), 'utf8');
+
+  assert.match(homepage, /<div class="hero-badge">Mobilt værksted - Sjælland og Jylland<\/div>/);
+  assert.doesNotMatch(homepage, /Mobilt værksted med erfarne mekanikere/);
+});
+
 test('consent stylesheet contains responsive and keyboard-focus states', async () => {
   const css = await readFile(path.join(root, 'assets/cookie-consent.css'), 'utf8');
   assert.match(css, /position:\s*fixed/);
