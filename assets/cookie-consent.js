@@ -84,8 +84,33 @@
     });
   }
 
+  function trackEvent(name, parameters = {}) {
+    if (readConsent() !== 'accepted') return;
+    loadAnalytics();
+    window.gtag('event', name, parameters);
+  }
+
+  function bindMeasurementEvents() {
+    document.addEventListener('click', (event) => {
+      const link = event.target.closest?.('a[href^="tel:"]');
+      if (!link) return;
+      trackEvent('phone_click', {
+        link_url: link.getAttribute('href'),
+        page_location: window.location.href
+      });
+    });
+
+    document.addEventListener('carupgrade:contact-success', () => {
+      trackEvent('generate_lead', {
+        form_id: 'contactForm',
+        page_location: window.location.href
+      });
+    });
+  }
+
   function init() {
     bindSettingsLinks();
+    bindMeasurementEvents();
     const consent = readConsent();
     if (consent === 'accepted') loadAnalytics();
     else if (consent !== 'rejected') showBanner();

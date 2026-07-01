@@ -35,19 +35,30 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://carupgrade.dk/#organization",
+      "name": "CarUpgrade",
+      "legalName": "Carupgrade",
+      "alternateName": "CarUpgrade.dk",
+      "url": "https://carupgrade.dk/",
+      "logo": "https://carupgrade.dk/assets/carupgrade-logo.png",
+      "telephone": "+45 31 14 77 37",
+      "email": "info@carupgrade.dk",
+      "vatID": "DK46080009",
+      "sameAs": [
+        "https://dk.trustpilot.com/review/carupgrade.dk"
+      ]
+    },
+    {
       "@type": [
         "AutoRepair",
         "LocalBusiness"
       ],
-      "@id": "https://carupgrade.dk/#business",
-      "name": "CarUpgrade",
-      "legalName": "Carupgrade",
-      "url": "https://carupgrade.dk/",
-      "logo": "https://carupgrade.dk/assets/carupgrade-logo.png",
-      "image": "https://carupgrade.dk/assets/repair-work-2.jpeg",
+      "@id": "https://carupgrade.dk/#location-vaerloese",
+      "name": "CarUpgrade Værløse",
+      "url": "https://carupgrade.dk/mobil-mekaniker-vaerloese/",
       "telephone": "+45 31 14 77 37",
       "email": "info@carupgrade.dk",
-      "vatID": "DK46080009",
       "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
@@ -59,6 +70,9 @@
       "areaServed": {
         "@type": "AdministrativeArea",
         "name": "Sjælland"
+      },
+      "parentOrganization": {
+        "@id": "https://carupgrade.dk/#organization"
       }
     },
     {
@@ -68,7 +82,7 @@
       "name": "CarUpgrade",
       "inLanguage": "da-DK",
       "publisher": {
-        "@id": "https://carupgrade.dk/#business"
+        "@id": "https://carupgrade.dk/#organization"
       }
     },
     {
@@ -82,7 +96,7 @@
         "@id": "https://carupgrade.dk/#website"
       },
       "about": {
-        "@id": "https://carupgrade.dk/#business"
+        "@id": "https://carupgrade.dk/#location-vaerloese"
       },
       "mainEntity": {
         "@id": "https://carupgrade.dk/mobilt-vaerksted-sjaelland/#service"
@@ -101,7 +115,7 @@
       "name": "Mobilt værksted på Sjælland",
       "description": "Mobilt værksted på Sjælland til service, fejlfinding og reparation hos dig. CarUpgrade kommer til bilen efter aftale.",
       "provider": {
-        "@id": "https://carupgrade.dk/#business"
+        "@id": "https://carupgrade.dk/#location-vaerloese"
       },
       "serviceType": "Sjælland",
       "areaServed": "Sjælland",

@@ -10,7 +10,7 @@ const storageKey = 'carupgrade_cookie_consent_v1';
 async function createPage(consent) {
   const source = await readFile(scriptPath, 'utf8');
   const dom = new JSDOM(
-    '<!doctype html><html><head></head><body><footer><a href="#" data-cookie-settings>Cookieindstillinger</a></footer></body></html>',
+    '<!doctype html><html><head></head><body><a href="tel:+4531147737">Ring</a><footer><a href="#" data-cookie-settings>Cookieindstillinger</a></footer></body></html>',
     { runScripts: 'outside-only', url: 'https://carupgrade.dk/' }
   );
 
@@ -64,4 +64,29 @@ test('settings link clears the choice before reload', async () => {
 
   assert.equal(dom.window.localStorage.getItem(storageKey), null);
   assert.equal(reloaded, true);
+});
+
+test('accepted consent tracks telephone clicks', async () => {
+  const dom = await createPage('accepted');
+  const link = dom.window.document.querySelector('a[href^="tel:"]');
+  link.addEventListener('click', (event) => event.preventDefault());
+  link.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true, cancelable: true }));
+
+  assert.ok(dom.window.dataLayer.some((entry) => entry[0] === 'event' && entry[1] === 'phone_click'));
+});
+
+test('rejected consent does not track telephone clicks', async () => {
+  const dom = await createPage('rejected');
+  const link = dom.window.document.querySelector('a[href^="tel:"]');
+  link.addEventListener('click', (event) => event.preventDefault());
+  link.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true, cancelable: true }));
+
+  assert.equal(dom.window.dataLayer, undefined);
+});
+
+test('accepted consent tracks successful contact events', async () => {
+  const dom = await createPage('accepted');
+  dom.window.document.dispatchEvent(new dom.window.CustomEvent('carupgrade:contact-success'));
+
+  assert.ok(dom.window.dataLayer.some((entry) => entry[0] === 'event' && entry[1] === 'generate_lead'));
 });

@@ -5,7 +5,7 @@
 <script src="/assets/cookie-consent.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="CarUpgrade tilbyder bilservice og reparation direkte hos dig – hjemme eller på arbejdet. Professionelt mobilt værksted på Sjælland.">
+<meta name="description" content="CarUpgrade tilbyder mobil bilservice og reparation hjemme eller på arbejdet. Professionelt mobilt værksted på Sjælland og Jylland.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#0a0a0a">
 <title>CarUpgrade | Professionelt Mobilt Værksted – Vi Kommer Til Dig</title>
@@ -20,8 +20,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="da_DK">
 <meta property="og:site_name" content="CarUpgrade">
-<meta property="og:title" content="CarUpgrade | Professionelt mobilt værksted på Sjælland">
-<meta property="og:description" content="Bilservice, fejlfinding og reparation direkte hos dig. CarUpgrade sender en uddannet mekaniker til din adresse på Sjælland.">
+<meta property="og:title" content="CarUpgrade | Mobilt værksted på Sjælland og i Jylland">
+<meta property="og:description" content="Bilservice, fejlfinding og reparation direkte hos dig fra vores afdelinger i Værløse og Vamdrup.">
 <meta property="og:url" content="https://carupgrade.dk/">
 <meta property="og:image" content="https://carupgrade.dk/assets/repair-work-1.jpeg">
 <meta property="og:image:width" content="1536">
@@ -29,7 +29,7 @@
 <meta property="og:image:alt" content="CarUpgrade servicevogn ude hos kunde">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="CarUpgrade | Professionelt mobilt værksted">
-<meta name="twitter:description" content="Bilservice og reparation hos dig på Sjælland.">
+<meta name="twitter:description" content="Bilservice og reparation hos dig på Sjælland og i Jylland.">
 <meta name="twitter:image" content="https://carupgrade.dk/assets/repair-work-1.jpeg">
 <meta name="twitter:image:alt" content="CarUpgrade servicevogn ude hos kunde">
 <script type="application/ld+json">
@@ -37,20 +37,31 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["AutoRepair", "LocalBusiness"],
-      "@id": "https://carupgrade.dk/#business",
+      "@type": "Organization",
+      "@id": "https://carupgrade.dk/#organization",
       "name": "CarUpgrade",
       "legalName": "Carupgrade",
       "alternateName": "CarUpgrade.dk",
       "url": "https://carupgrade.dk/",
       "logo": "https://carupgrade.dk/assets/carupgrade-logo.png",
-      "image": "https://carupgrade.dk/assets/repair-work-1.jpeg",
-      "description": "Mobilt værksted på Sjælland med bilservice, fejlfinding og reparation direkte hos kunden.",
       "telephone": "+45 31 14 77 37",
       "email": "info@carupgrade.dk",
       "vatID": "DK46080009",
+      "sameAs": [
+        "https://dk.trustpilot.com/review/carupgrade.dk"
+      ]
+    },
+    {
+      "@type": [
+        "AutoRepair",
+        "LocalBusiness"
+      ],
+      "@id": "https://carupgrade.dk/#location-vaerloese",
+      "name": "CarUpgrade Værløse",
+      "url": "https://carupgrade.dk/mobil-mekaniker-vaerloese/",
+      "telephone": "+45 31 14 77 37",
+      "email": "info@carupgrade.dk",
       "priceRange": "$$",
-      "currenciesAccepted": "DKK",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Violvej 10",
@@ -58,51 +69,42 @@
         "addressLocality": "Værløse",
         "addressCountry": "DK"
       },
-      "areaServed": [
-        {
-          "@type": "AdministrativeArea",
-          "name": "Sjælland"
-        },
-        {
-          "@type": "City",
-          "name": "Værløse"
-        },
-        {
-          "@type": "City",
-          "name": "København"
-        }
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Sjælland"
+      },
+      "parentOrganization": {
+        "@id": "https://carupgrade.dk/#organization"
+      }
+    },
+    {
+      "@type": [
+        "AutoRepair",
+        "LocalBusiness"
       ],
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "07:00",
-          "closes": "16:00"
-        }
+      "@id": "https://carupgrade.dk/#location-vamdrup",
+      "name": "CarUpgrade Vamdrup",
+      "url": "https://carupgrade.dk/mobil-mekaniker-vamdrup/",
+      "telephone": "+45 31 14 77 37",
+      "email": "info@carupgrade.dk",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Gåskærvej 12",
+        "postalCode": "6580",
+        "addressLocality": "Vamdrup",
+        "addressCountry": "DK"
+      },
+      "openingHours": [
+        "Mo-Sa 09:00-19:00"
       ],
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "telephone": "+45 31 14 77 37",
-          "email": "info@carupgrade.dk",
-          "contactType": "customer service",
-          "areaServed": "DK",
-          "availableLanguage": ["da-DK", "da"]
-        }
-      ],
-      "knowsAbout": [
-        "Mobilt værksted",
-        "Bilservice",
-        "Serviceeftersyn",
-        "Olieskift",
-        "Bremser",
-        "Motordiagnostik",
-        "Fejlfinding på bil",
-        "Bilreparation"
-      ],
-      "sameAs": [
-        "https://dk.trustpilot.com/review/carupgrade.dk"
-      ]
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Jylland"
+      },
+      "parentOrganization": {
+        "@id": "https://carupgrade.dk/#organization"
+      }
     },
     {
       "@type": "WebSite",
@@ -111,7 +113,7 @@
       "name": "CarUpgrade",
       "inLanguage": "da-DK",
       "publisher": {
-        "@id": "https://carupgrade.dk/#business"
+        "@id": "https://carupgrade.dk/#organization"
       }
     },
     {
@@ -119,13 +121,13 @@
       "@id": "https://carupgrade.dk/#webpage",
       "url": "https://carupgrade.dk/",
       "name": "CarUpgrade | Professionelt Mobilt Værksted – Vi Kommer Til Dig",
-      "description": "CarUpgrade tilbyder bilservice og reparation direkte hos dig – hjemme eller på arbejdet. Professionelt mobilt værksted på Sjælland.",
+      "description": "CarUpgrade tilbyder mobil bilservice og reparation hjemme eller på arbejdet. Professionelt mobilt værksted på Sjælland og Jylland.",
       "inLanguage": "da-DK",
       "isPartOf": {
         "@id": "https://carupgrade.dk/#website"
       },
       "about": {
-        "@id": "https://carupgrade.dk/#business"
+        "@id": "https://carupgrade.dk/#organization"
       },
       "mainEntity": {
         "@id": "https://carupgrade.dk/#mobile-auto-repair"
@@ -142,9 +144,12 @@
       "@id": "https://carupgrade.dk/#mobile-auto-repair",
       "name": "Mobilt værksted og bilservice",
       "provider": {
-        "@id": "https://carupgrade.dk/#business"
+        "@id": "https://carupgrade.dk/#organization"
       },
-      "areaServed": "Sjælland",
+      "areaServed": [
+        "Sjælland",
+        "Jylland"
+      ],
       "serviceType": [
         "Bilservice",
         "Bremser og dæk",
@@ -1675,6 +1680,17 @@
   <p class="repairs-note">Fra fejlkoder til færdig løsning: CarUpgrade gør bilreparation nemmere, tættere på og mere gennemsigtig.</p>
 </section>
 
+<section class="repairs" aria-labelledby="coverage-title">
+  <div class="section-label">Områder vi dækker</div>
+  <h2 class="section-title" id="coverage-title">To afdelinger · mobil service tættere på</h2>
+  <p class="section-sub">CarUpgrade kører ud fra Værløse på Sjælland og fra den fysiske afdeling i Vamdrup til opgaver i Jylland.</p>
+  <div class="repairs-grid">
+    <a class="repair-card" href="/mobil-mekaniker-jylland/"><h3>Mobil mekaniker i Jylland</h3><p>Se byer og dækningsområde fra Vamdrup.</p></a>
+    <a class="repair-card" href="/mobil-mekaniker-vamdrup/"><h3>Afdeling i Vamdrup</h3><p>Mobil service og værksted på Gåskærvej 12.</p></a>
+    <a class="repair-card" href="/mobilt-vaerksted-sjaelland/"><h3>Mobilt værksted på Sjælland</h3><p>Se dækningen fra Værløse-afdelingen.</p></a>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="kontakt">
   <div class="contact-inner">
@@ -1729,7 +1745,7 @@
         </div>
         <div>
           <div class="contact-detail-label">Dækningsområde</div>
-          <div class="contact-detail-value">Sjælland</div>
+          <div class="contact-detail-value">Sjælland og Jylland</div>
         </div>
       </div>
     </div>
@@ -1938,6 +1954,7 @@
       if (!response.ok || !result.ok) throw new Error('Beskeden blev ikke sendt');
 
       contactForm.reset();
+      document.dispatchEvent(new CustomEvent('carupgrade:contact-success'));
       resetTurnstile();
       submitButton.textContent = 'Forespørgsel sendt';
       submitButton.style.background = '#1a7a4a';

@@ -35,31 +35,19 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": [
-        "AutoRepair",
-        "LocalBusiness"
-      ],
-      "@id": "https://carupgrade.dk/#business",
+      "@type": "Organization",
+      "@id": "https://carupgrade.dk/#organization",
       "name": "CarUpgrade",
       "legalName": "Carupgrade",
+      "alternateName": "CarUpgrade.dk",
       "url": "https://carupgrade.dk/",
       "logo": "https://carupgrade.dk/assets/carupgrade-logo.png",
-      "image": "https://carupgrade.dk/assets/repair-work-3.jpeg",
       "telephone": "+45 31 14 77 37",
       "email": "info@carupgrade.dk",
       "vatID": "DK46080009",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Violvej 10",
-        "postalCode": "3500",
-        "addressLocality": "Værløse",
-        "addressCountry": "DK"
-      },
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Sjælland"
-      }
+      "sameAs": [
+        "https://dk.trustpilot.com/review/carupgrade.dk"
+      ]
     },
     {
       "@type": "WebSite",
@@ -68,7 +56,7 @@
       "name": "CarUpgrade",
       "inLanguage": "da-DK",
       "publisher": {
-        "@id": "https://carupgrade.dk/#business"
+        "@id": "https://carupgrade.dk/#organization"
       }
     },
     {
@@ -82,7 +70,7 @@
         "@id": "https://carupgrade.dk/#website"
       },
       "about": {
-        "@id": "https://carupgrade.dk/#business"
+        "@id": "https://carupgrade.dk/#organization"
       },
       "mainEntity": {
         "@id": "https://carupgrade.dk/serviceeftersyn-bil/#service"
@@ -101,7 +89,7 @@
       "name": "Serviceeftersyn af bil hos dig",
       "description": "Serviceeftersyn af bil udført hos dig efter aftale. CarUpgrade hjælper med olieskift, filtre, kontrolpunkter og fejlfinding.",
       "provider": {
-        "@id": "https://carupgrade.dk/#business"
+        "@id": "https://carupgrade.dk/#organization"
       },
       "serviceType": "Serviceeftersyn",
       "areaServed": "Sjælland",
@@ -283,6 +271,9 @@
         <p>Ja, hvis relevant kan diagnose og fejlkodelæsning indgå i vurderingen.</p>
       </article>
     </div>
+  </section>
+  <section class="contact-band">
+    <p>Serviceeftersyn kan bookes fra afdelingen i <a href="/mobil-mekaniker-vamdrup/"><u>Vamdrup</u></a> til kunder i <a href="/mobil-mekaniker-jylland/"><u>Jylland</u></a>.</p>
   </section>
   <section class="contact-band">
     <h2>Klar til at få bilen vurderet?</h2>
