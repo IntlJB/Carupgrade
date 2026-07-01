@@ -148,7 +148,8 @@ test('Jylland local pages have unique self-canonicals and Vamdrup provider schem
 });
 
 test('Vamdrup branch schema contains the approved physical business facts', async () => {
-  const graph = readGraph(await readPage('mobil-mekaniker-vamdrup'));
+  const vamdrupPage = await readPage('mobil-mekaniker-vamdrup');
+  const graph = readGraph(vamdrupPage);
   const branch = graph.find((entity) => entity['@id'] === 'https://carupgrade.dk/#location-vamdrup');
 
   assert.ok(branch);
@@ -161,8 +162,16 @@ test('Vamdrup branch schema contains the approved physical business facts', asyn
     addressLocality: 'Vamdrup',
     addressCountry: 'DK'
   });
-  assert.deepEqual(branch.openingHours, ['Mo-Sa 09:00-19:00']);
+  assert.deepEqual(branch.openingHours, ['Mo-Fr 09:00-19:00']);
   assert.equal(branch.parentOrganization['@id'], 'https://carupgrade.dk/#organization');
+  assert.match(vamdrupPage, /Mandag–fredag 09–19/);
+  assert.match(vamdrupPage, /Weekender efter aftale/);
+});
+
+test('homepage displays the approved opening hours', async () => {
+  const homepage = await readPage('.');
+
+  assert.match(homepage, /Man-Fre 09:00-19:00<br>Weekender efter aftale/);
 });
 
 test('Værløse and Vamdrup have separate stable structured-data identities', async () => {
