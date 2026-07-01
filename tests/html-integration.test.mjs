@@ -198,11 +198,22 @@ test('structured data no longer uses the ambiguous business identity', async () 
   }
 });
 
-test('main service pages provide visible entry points to Jylland coverage', async () => {
-  for (const directory of ['.', 'mobil-mekaniker', 'mobilt-vaerksted']) {
+test('existing public pages do not expose the hidden Jylland landing pages', async () => {
+  const publicPages = (await findHtmlFiles()).filter((file) =>
+    !localPages.some((directory) => file.endsWith(`${directory}/index.html`))
+  );
+
+  for (const file of publicPages) {
+    const html = await readFile(file, 'utf8');
+    assert.doesNotMatch(html, /href="\/mobil-mekaniker-jylland\/"/, file);
+    assert.doesNotMatch(html, /href="\/mobil-mekaniker-vamdrup\/"/, file);
+  }
+});
+
+test('every hidden Jylland landing page links back to CarUpgrade', async () => {
+  for (const directory of localPages) {
     const html = await readPage(directory);
-    assert.match(html, /href="\/mobil-mekaniker-jylland\/"/, directory);
-    assert.match(html, /href="\/mobil-mekaniker-vamdrup\/"/, directory);
+    assert.match(html, /href="\/"/, directory);
   }
 });
 
