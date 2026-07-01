@@ -56,6 +56,15 @@ test('homepage hero text states coverage in Jutland and Zealand', async () => {
   assert.match(homepage, /Vi reparerer biler i både Jylland og på Sjælland\./);
 });
 
+test('FAQ pages describe service coverage in Jutland and Zealand', async () => {
+  for (const directory of ['FAQ', 'faq']) {
+    const html = await readFile(path.join(root, directory, 'index.html'), 'utf8');
+
+    assert.equal((html.match(/Hvor reparerer I biler\?/g) || []).length, 2, directory);
+    assert.match(html, /Vi reparerer biler i både Jylland og på Sjælland\./);
+  }
+});
+
 test('consent stylesheet contains responsive and keyboard-focus states', async () => {
   const css = await readFile(path.join(root, 'assets/cookie-consent.css'), 'utf8');
   assert.match(css, /position:\s*fixed/);
