@@ -21,7 +21,7 @@ async function findHtmlFiles(directory = root) {
 
 test('every page includes one consent stylesheet, script, and settings link', async () => {
   const files = await findHtmlFiles();
-  assert.equal(files.length, 17);
+  assert.equal(files.length, 18);
 
   for (const file of files) {
     const html = await readFile(file, 'utf8');
@@ -54,6 +54,31 @@ test('homepage hero text states coverage in Jutland and Zealand', async () => {
   const homepage = await readFile(path.join(root, 'index.html'), 'utf8');
 
   assert.match(homepage, /Vi reparerer biler i både Jylland og på Sjælland\./);
+});
+
+test('about page contains the approved personal story and SEO metadata', async () => {
+  const about = await readFile(path.join(root, 'om-os/index.html'), 'utf8');
+
+  assert.match(about, /<title>[^<]*(CarUpgrade|Om Os)[^<]*<\/title>/);
+  assert.match(about, /<meta name="description" content="[^"]+">/);
+  assert.match(about, /<link rel="canonical" href="https:\/\/carupgrade\.dk\/om-os\/">/);
+  assert.match(about, /"@type": "AboutPage"/);
+  assert.match(about, /Fra København til Jylland – CarUpgrade er vokset med opgaven/);
+  assert.match(about, /Jeg startede CarUpgrade som mekaniker i København i 2023\./);
+  assert.match(about, /Vamdrup/);
+  assert.match(about, /større del af Jylland/);
+  assert.match(about, /aria-current="page">Om Os<\/a>/);
+});
+
+test('main navigation places Om Os between Reparationer and FAQ', async () => {
+  const files = await findHtmlFiles();
+
+  for (const file of files) {
+    const html = await readFile(file, 'utf8');
+    const nav = html.match(/<nav[^>]*(?:id="navbar"|class="topbar")[\s\S]*?<\/nav>/)?.[0];
+    if (!nav || !/Reparationer/.test(nav) || !/FAQ/.test(nav)) continue;
+    assert.match(nav, /Reparationer[\s\S]*?href="\/om-os\/"[^>]*>Om Os<\/a>[\s\S]*?FAQ/, file);
+  }
 });
 
 test('FAQ pages describe service coverage in Jutland and Zealand', async () => {
