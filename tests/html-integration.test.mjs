@@ -50,6 +50,12 @@ test('homepage badge names the mobile workshop coverage areas', async () => {
   assert.doesNotMatch(homepage, /Mobilt værksted med erfarne mekanikere/);
 });
 
+test('homepage hero text states coverage in Jutland and Zealand', async () => {
+  const homepage = await readFile(path.join(root, 'index.html'), 'utf8');
+
+  assert.match(homepage, /Vi reparerer biler i både Jylland og på Sjælland\./);
+});
+
 test('consent stylesheet contains responsive and keyboard-focus states', async () => {
   const css = await readFile(path.join(root, 'assets/cookie-consent.css'), 'utf8');
   assert.match(css, /position:\s*fixed/);
