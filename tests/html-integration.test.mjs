@@ -81,6 +81,17 @@ test('main navigation places Om Os between Reparationer and FAQ', async () => {
   }
 });
 
+test('full navigation collapses before labels can wrap at tablet widths', async () => {
+  const files = await findHtmlFiles();
+
+  for (const file of files) {
+    const html = await readFile(file, 'utf8');
+    const nav = html.match(/<nav[^>]*id="navbar"[\s\S]*?<\/nav>/)?.[0];
+    if (!nav || !/Reparationer/.test(nav) || !/FAQ/.test(nav)) continue;
+    assert.match(html, /@media \(max-width: 1120px\)[\s\S]*?\.nav-links \{ display: none; \}/, file);
+  }
+});
+
 test('FAQ pages describe service coverage in Jutland and Zealand', async () => {
   for (const directory of ['FAQ', 'faq']) {
     const html = await readFile(path.join(root, directory, 'index.html'), 'utf8');
