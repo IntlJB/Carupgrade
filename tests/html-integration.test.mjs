@@ -104,6 +104,42 @@ test('main navigation places Om Os between Reparationer and FAQ', async () => {
   }
 });
 
+test('review navigation links use the dedicated route', async () => {
+  for (const file of await findHtmlFiles()) {
+    const html = await readFile(file, 'utf8');
+    assert.doesNotMatch(html, /href="\/?#anmeldelser"/, file);
+
+    if (/Anmeldelser/.test(html)) {
+      assert.match(html, /href="\/anmeldelser\/"[^>]*>Anmeldelser<\/a>/, file);
+    }
+  }
+});
+
+test('full navigation places Anmeldelser between Reparationer and Om Os', async () => {
+  for (const file of await findHtmlFiles()) {
+    const html = await readFile(file, 'utf8');
+    const nav = html.match(/<nav[^>]*(?:id="navbar"|class="topbar")[\s\S]*?<\/nav>/)?.[0];
+    if (!nav || !/Reparationer/.test(nav) || !/Om Os/.test(nav)) continue;
+
+    assert.match(
+      nav,
+      /Reparationer[\s\S]*?href="\/anmeldelser\/"[^>]*>Anmeldelser<\/a>[\s\S]*?href="\/om-os\/"[^>]*>Om Os<\/a>/,
+      file
+    );
+  }
+});
+
+test('homepage no longer renders review cards and uses current Trustpilot facts', async () => {
+  const homepage = await readPage('.');
+
+  assert.doesNotMatch(homepage, /<section[^>]*id="anmeldelser"/);
+  assert.doesNotMatch(homepage, /class="review-card"/);
+  assert.doesNotMatch(homepage, />3[,.]8(?:<|★)/);
+  assert.doesNotMatch(homepage, /2 anmeldelser/);
+  assert.match(homepage, />4\.0★</);
+  assert.match(homepage, /why-big-stat">4\.0<span>★<\/span>/);
+});
+
 test('full navigation collapses before labels can wrap at tablet widths', async () => {
   const files = await findHtmlFiles();
 

@@ -783,135 +783,6 @@
     letter-spacing: 0.08em;
   }
 
-  /* ── REVIEWS ── */
-  .reviews { background: var(--black); }
-
-  .reviews-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 4rem;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .trustpilot-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: var(--dark2);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 3px;
-    padding: 0.75rem 1.25rem;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--white);
-    transition: border-color 0.2s, background 0.2s;
-  }
-
-  .trustpilot-badge:hover {
-    border-color: rgba(0,182,122,0.5);
-    background: rgba(0,182,122,0.06);
-  }
-
-  .tp-stars { color: #00b67a; font-size: 1.1rem; letter-spacing: 2px; }
-
-  .tp-logo {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-  }
-
-  .tp-logo span { color: #00b67a; }
-
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1px;
-    background: rgba(255,255,255,0.06);
-    margin-bottom: 3rem;
-  }
-
-  .review-card {
-    background: var(--dark);
-    padding: 2rem;
-    position: relative;
-    transition: background 0.3s;
-  }
-
-  .review-card:hover { background: var(--dark2); }
-
-  .review-stars { color: #00b67a; font-size: 1rem; margin-bottom: 1rem; }
-
-  .review-text {
-    font-size: 0.92rem;
-    color: var(--gray-light);
-    line-height: 1.8;
-    font-weight: 300;
-    margin-bottom: 1.5rem;
-    font-style: italic;
-  }
-
-  .review-author {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .review-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--dark3);
-    border: 1px solid rgba(255,255,255,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--red);
-  }
-
-  .review-name {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--white);
-  }
-
-  .review-date {
-    font-size: 0.75rem;
-    color: var(--gray);
-  }
-
-  .reviews-cta {
-    text-align: center;
-    padding-top: 2rem;
-  }
-
-  .reviews-cta a {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    color: #00b67a;
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    border: 1px solid rgba(0,182,122,0.35);
-    padding: 1rem 2rem;
-    border-radius: 2px;
-    transition: background 0.2s, border-color 0.2s;
-  }
-
-  .reviews-cta a:hover {
-    background: rgba(0,182,122,0.08);
-    border-color: rgba(0,182,122,0.7);
-  }
-
-  /* ── CONTACT ── */
   /* REPAIRS */
   .repairs {
     background: var(--dark);
@@ -1333,7 +1204,6 @@
     .footer-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
     .services-intro { flex-direction: column; align-items: flex-start; }
-    .reviews-header { flex-direction: column; align-items: flex-start; }
     .repairs-header { flex-direction: column; align-items: flex-start; }
     .repairs-gallery { grid-template-columns: 1fr; }
     .repair-photo, .repair-photo.featured { min-height: 300px; }
@@ -1353,8 +1223,8 @@
   <ul class="nav-links" id="navLinks">
     <li><a href="#hvordan">Sådan fungerer det</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#anmeldelser">Anmeldelser</a></li>
     <li><a href="#reparationer">Reparationer</a></li>
+    <li><a href="/anmeldelser/">Anmeldelser</a></li>
     <li><a href="/om-os/">Om Os</a></li>
     <li><a href="/FAQ/">FAQ</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
@@ -1396,7 +1266,7 @@
       <span>Tilfredsgaranti</span>
     </div>
     <div class="hero-stat">
-      <strong>3.8★</strong>
+      <strong>4.0★</strong>
       <span>Trustpilot-vurdering</span>
     </div>
     <div class="hero-stat">
@@ -1535,7 +1405,7 @@
     </div>
     <div class="why-visual" data-reveal>
       <div class="why-visual-box">
-        <div class="why-big-stat">3.8<span>★</span></div>
+        <div class="why-big-stat">4.0<span>★</span></div>
         <p class="why-stat-label">Gennemsnitlig Trustpilot-vurdering</p>
         <p style="font-size:0.88rem; color: var(--gray-light); font-weight:300; line-height:1.7;">
           CarUpgrade har sin egen Trustpilot-profil med rigtige kundeoplevelser. Læs anmeldelserne og få et ærligt indblik i service, pris og udført arbejde.
@@ -1560,66 +1430,6 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section class="reviews" id="anmeldelser">
-  <div class="reviews-header">
-    <div>
-      <div class="section-label">Anmeldelser</div>
-      <h2 class="section-title">Hvad vores kunder siger</h2>
-      <p class="section-sub">Direkte adgang til CarUpgrades rigtige Trustpilot-profil.</p>
-    </div>
-    <a href="https://dk.trustpilot.com/review/carupgrade.dk" target="_blank" rel="noopener" class="trustpilot-badge">
-      <span class="tp-stars">★★★★★</span>
-      <span>Se alle anmeldelser på <span class="tp-logo">Trust<span>pilot</span></span></span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-    </a>
-  </div>
-
-  <div class="reviews-grid">
-    <div class="review-card" data-reveal>
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Vild god service. Har brugt ham flere gange, har lige fået skiftet bremser til en god pris. Altid godt humør."</p>
-      <div class="review-author">
-        <div class="review-avatar">LV</div>
-        <div>
-          <div class="review-name">Leif V.</div>
-          <div class="review-date">Trustpilot · 23. november 2025</div>
-        </div>
-      </div>
-    </div>
-    <div class="review-card" data-reveal data-reveal-delay="1">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"God og hurtig reparation. Jeg fik pris på service bagefter, som jeg også sagde ja til."</p>
-      <div class="review-author">
-        <div class="review-avatar">SØ</div>
-        <div>
-          <div class="review-name">Søren</div>
-          <div class="review-date">Trustpilot · 14. december 2024</div>
-        </div>
-      </div>
-    </div>
-    <div class="review-card" data-reveal data-reveal-delay="2">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">CarUpgrade er vurderet til 3,8 på Trustpilot baseret på de nuværende anmeldelser. Klik videre for at se profilen og skrive din egen anmeldelse.</p>
-      <div class="review-author">
-        <div class="review-avatar">TP</div>
-        <div>
-          <div class="review-name">CarUpgrade</div>
-          <div class="review-date">Trustpilot-profil · 2 anmeldelser</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="reviews-cta">
-    <a href="https://dk.trustpilot.com/review/carupgrade.dk" target="_blank" rel="noopener">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b67a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      Læs alle anmeldelser på Trustpilot
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00b67a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-    </a>
   </div>
 </section>
 
@@ -1813,9 +1623,9 @@
       <ul>
         <li><a href="#hjem">Forside</a></li>
         <li><a href="#hvordan">Sådan fungerer det</a></li>
-        <li><a href="/om-os/">Om Os</a></li>
-        <li><a href="#anmeldelser">Anmeldelser</a></li>
         <li><a href="#reparationer">Reparationer</a></li>
+        <li><a href="/anmeldelser/">Anmeldelser</a></li>
+        <li><a href="/om-os/">Om Os</a></li>
         <li><a href="/FAQ/">FAQ</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
