@@ -140,6 +140,38 @@ test('homepage no longer renders review cards and uses current Trustpilot facts'
   assert.match(homepage, /why-big-stat">4\.0<span>★<\/span>/);
 });
 
+test('reviews page publishes the approved metadata and Trustpilot summary', async () => {
+  const reviews = await readPage('anmeldelser');
+
+  assert.match(reviews, /<title>[^<]*Anmeldelser[^<]*CarUpgrade[^<]*<\/title>/);
+  assert.match(reviews, /<meta name="description" content="[^"]+">/);
+  assert.match(reviews, /<link rel="canonical" href="https:\/\/carupgrade\.dk\/anmeldelser\/">/);
+  assert.match(reviews, /"@type": "WebPage"/);
+  assert.match(reviews, /"url": "https:\/\/carupgrade\.dk\/anmeldelser\/"/);
+  assert.match(reviews, /4,0/);
+  assert.match(reviews, /4 anmeldelser/);
+  assert.doesNotMatch(reviews, /AggregateRating/);
+});
+
+test('reviews page renders all four approved reviews', async () => {
+  const reviews = await readPage('anmeldelser');
+
+  assert.equal((reviews.match(/class="review-card"/g) || []).length, 4);
+  for (const expected of [
+    'Intl',
+    'Super tilfreds!',
+    'Hurtig, professionel og en meget behagelig service.',
+    'Sofie Jensen',
+    'Har brugt ham flere gange og er altid tilfreds',
+    'Leif vester',
+    'Vild god service',
+    'Søren',
+    'God og hurtig reparation'
+  ]) {
+    assert.match(reviews, new RegExp(expected), expected);
+  }
+});
+
 test('full navigation collapses before labels can wrap at tablet widths', async () => {
   const files = await findHtmlFiles();
 
