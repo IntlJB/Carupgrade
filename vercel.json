@@ -152,11 +152,6 @@
       "permanent": true
     },
     {
-      "source": "/anmeldelser",
-      "destination": "/#anmeldelser",
-      "permanent": true
-    },
-    {
       "source": "/reparationer",
       "destination": "/#reparationer",
       "permanent": true

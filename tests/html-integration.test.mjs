@@ -301,6 +301,13 @@ test('sitemap publishes the reviews page exactly once', async () => {
   assert.equal((sitemap.match(/https:\/\/carupgrade\.dk\/anmeldelser\//g) || []).length, 1);
 });
 
+test('Vercel serves the dedicated reviews route without a legacy redirect', async () => {
+  const config = JSON.parse(await readFile(path.join(root, 'vercel.json'), 'utf8'));
+  const reviewsRedirect = config.redirects.find((redirect) => redirect.source === '/anmeldelser');
+
+  assert.equal(reviewsRedirect, undefined);
+});
+
 test('structured data no longer uses the ambiguous business identity', async () => {
   for (const file of await findHtmlFiles()) {
     const html = await readFile(file, 'utf8');
