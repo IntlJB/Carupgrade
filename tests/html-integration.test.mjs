@@ -43,7 +43,7 @@ function readGraph(html) {
 
 test('every page includes one consent stylesheet, script, and settings link', async () => {
   const files = await findHtmlFiles();
-  assert.equal(files.length, 26);
+    assert.equal(files.length, 27);
 
   for (const file of files) {
     const html = await readFile(file, 'utf8');
@@ -294,6 +294,11 @@ test('sitemap contains each local canonical exactly once', async () => {
     const canonical = `https://carupgrade.dk/${directory}/`;
     assert.equal((sitemap.match(new RegExp(canonical, 'g')) || []).length, 1, directory);
   }
+});
+
+test('sitemap publishes the reviews page exactly once', async () => {
+  const sitemap = await readFile(path.join(root, 'sitemap.xml'), 'utf8');
+  assert.equal((sitemap.match(/https:\/\/carupgrade\.dk\/anmeldelser\//g) || []).length, 1);
 });
 
 test('structured data no longer uses the ambiguous business identity', async () => {
