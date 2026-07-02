@@ -140,6 +140,15 @@ test('homepage no longer renders review cards and uses current Trustpilot facts'
   assert.match(homepage, /why-big-stat">4\.0<span>★<\/span>/);
 });
 
+test('homepage Trustpilot panel states coverage in both Zealand and Jutland', async () => {
+  const homepage = await readPage('.');
+  const trustpilotPanel = homepage.match(/<div class="why-visual"[\s\S]*?<\/section>/)?.[0];
+
+  assert.ok(trustpilotPanel);
+  assert.match(trustpilotPanel, /Sjælland[\s\S]*?(?:&amp;|og)[\s\S]*?Jylland/);
+  assert.match(trustpilotPanel, /<small>Dækning<\/small>/);
+});
+
 test('reviews page publishes the approved metadata and Trustpilot summary', async () => {
   const reviews = await readPage('anmeldelser');
 
@@ -172,13 +181,14 @@ test('reviews page renders all four approved reviews', async () => {
   }
 });
 
-test('reviews page ends with a strong CTA and the protected contact form', async () => {
+test('reviews page omits the standalone CTA band and retains the protected contact form', async () => {
   const reviews = await readPage('anmeldelser');
-  const ctaIndex = reviews.indexOf('class="conversion-cta"');
   const formIndex = reviews.indexOf('id="contactForm"');
 
-  assert.ok(ctaIndex > -1);
-  assert.ok(formIndex > ctaIndex);
+  assert.doesNotMatch(reviews, /class="conversion-cta"/);
+  assert.doesNotMatch(reviews, /Klar til næste skridt\?/);
+  assert.doesNotMatch(reviews, /Få samme gode service/);
+  assert.ok(formIndex > -1);
   assert.match(reviews, /<form[^>]*id="contactForm"[^>]*action="\/api\/contact"[^>]*method="POST"/);
   assert.match(reviews, /name="name"[^>]*required/);
   assert.match(reviews, /name="email"[^>]*required/);
