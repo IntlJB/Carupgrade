@@ -115,6 +115,16 @@ test('full navigation collapses before labels can wrap at tablet widths', async 
   }
 });
 
+test('Om Os uses the same primary navigation presentation as FAQ', async () => {
+  const about = await readPage('om-os');
+
+  assert.match(about, /#navbar\s*\{[\s\S]*?--red:\s*#D91B38;[\s\S]*?--gray-light:\s*#bbb;[\s\S]*?position:\s*fixed;[\s\S]*?z-index:\s*1000;/);
+  assert.match(about, /\.nav-logo img\s*\{[^}]*width:\s*138px;/);
+  assert.match(about, /\.nav-links\s*\{[^}]*gap:\s*2rem;/);
+  assert.match(about, /\.nav-links a\s*\{[\s\S]*?font-size:\s*0\.85rem;[\s\S]*?font-weight:\s*500;/);
+  assert.match(about, /\.nav-cta\s*\{[\s\S]*?padding:\s*0\.5rem 1\.25rem;/);
+});
+
 test('FAQ pages describe service coverage in Jutland and Zealand', async () => {
   for (const directory of ['FAQ', 'faq']) {
     const html = await readFile(path.join(root, directory, 'index.html'), 'utf8');
