@@ -76,7 +76,7 @@ test('homepage hero text states coverage in Jutland and Zealand', async () => {
   const homepage = await readFile(path.join(root, 'index.html'), 'utf8');
 
   assert.match(homepage, /Vi reparerer biler i både Jylland og på Sjælland\./);
-  assert.match(homepage, /<meta name="description" content="[^"]*Sjælland og Jylland[^"]*">/);
+  assert.match(homepage, /<meta name="description" content="[^"]*Sjælland og i Jylland[^"]*">/);
 });
 
 test('about page contains the approved personal story and SEO metadata', async () => {
@@ -224,6 +224,42 @@ test('every hidden Jylland landing page links back to CarUpgrade', async () => {
     const html = await readPage(directory);
     assert.match(html, /href="\/"/, directory);
   }
+});
+
+test('general pages describe coverage on Sjælland and in Jylland', async () => {
+  const footerPages = [
+    '.',
+    'FAQ',
+    'cookiepolitik',
+    'handels-og-garantibestemmelser',
+    'privatlivspolitik'
+  ];
+  const approvedFooter = /Professionelt mobilt værksted der kommer til dig på Sjælland og i Jylland\. Uddannede mekanikere, gennemsigtige priser og garanti på alt arbejde\./;
+
+  for (const directory of footerPages) {
+    assert.match(await readPage(directory), approvedFooter, directory);
+  }
+
+  const generalServicePages = [
+    'bilservice-hjemme',
+    'biludstyr-og-infotainment',
+    'bremser',
+    'fejlfinding-bil',
+    'mobil-mekaniker',
+    'mobilt-vaerksted',
+    'olieskift-hjemme',
+    'serviceeftersyn-bil'
+  ];
+
+  for (const directory of generalServicePages) {
+    const html = await readPage(directory);
+    const service = readGraph(html).find((entity) => entity['@type'] === 'Service');
+    assert.deepEqual(service.areaServed, ['Sjælland', 'Jylland'], directory);
+  }
+
+  const sjællandPage = await readPage('mobilt-vaerksted-sjaelland');
+  assert.match(sjællandPage, /<h1>Mobilt værksted på Sjælland<\/h1>/);
+  assert.match(sjællandPage, /"areaServed": "Sjælland"/);
 });
 
 test('consent stylesheet contains responsive and keyboard-focus states', async () => {
