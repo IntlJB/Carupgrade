@@ -28,6 +28,7 @@
 <meta name="twitter:title" content="Anmeldelser | CarUpgrade">
 <meta name="twitter:description" content="Læs kundernes oplevelser med CarUpgrade og vores mobile værkstedsservice.">
 <meta name="twitter:image" content="https://carupgrade.dk/assets/repair-work-1.jpeg">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -114,6 +115,41 @@
   .review-card footer span { color: var(--gray); font-size: .74rem; }
   .trustpilot-badge { width: fit-content; margin: 2.5rem auto 0; padding: .9rem 1.4rem; display: flex; align-items: center; gap: .7rem; color: #00b67a; border: 1px solid rgba(0,182,122,.4); border-radius: 2px; font-family: var(--font-display); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
   .trustpilot-badge:hover { background: rgba(0,182,122,.08); border-color: #00b67a; }
+  .conversion-cta { padding: 3.5rem 8%; display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; background: linear-gradient(120deg, var(--red-dark), var(--red)); }
+  .conversion-cta .section-label { color: var(--white); }
+  .conversion-cta .section-label::before { background: var(--white); }
+  .conversion-cta h2 { max-width: 760px; font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 900; line-height: .95; text-transform: uppercase; }
+  .conversion-cta p { max-width: 650px; margin-top: .8rem; color: rgba(255,255,255,.82); font-weight: 300; }
+  .btn-primary { flex: 0 0 auto; padding: 1rem 1.5rem; color: var(--white); background: var(--black); border: 1px solid rgba(255,255,255,.18); border-radius: 2px; font-family: var(--font-display); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; transition: transform .2s, background .2s; }
+  .btn-primary:hover { background: var(--dark2); transform: translateY(-2px); }
+  .contact { padding: 110px 8%; background: var(--black); }
+  .contact-inner { display: grid; grid-template-columns: .85fr 1.15fr; gap: 6rem; align-items: start; }
+  .contact-info h2 { font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 900; line-height: .95; text-transform: uppercase; }
+  .contact-info > p { margin: 1.25rem 0 3rem; color: var(--gray-light); font-weight: 300; }
+  .contact-detail { margin-bottom: 1.5rem; display: flex; align-items: flex-start; gap: 1rem; }
+  .contact-detail-icon { width: 40px; height: 40px; display: grid; place-items: center; flex: 0 0 auto; border: 1px solid rgba(217,27,56,.3); border-radius: 2px; }
+  .contact-detail-icon svg { width: 18px; fill: none; stroke: var(--red); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .contact-detail-label { margin-bottom: 3px; color: var(--gray); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+  .contact-detail-value { color: var(--white); font-size: .95rem; }
+  .contact-detail-value a:hover { color: var(--red); }
+  .contact-form { padding: 2.5rem; background: var(--dark2); border: 1px solid rgba(255,255,255,.07); border-radius: 3px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-group label { display: block; margin-bottom: .5rem; color: var(--gray); font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+  .form-group input, .form-group textarea, .form-group select { width: 100%; padding: .8rem 1rem; color: var(--white); background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 2px; outline: none; font: .9rem var(--font-body); transition: border-color .2s, background .2s; }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { background: rgba(217,27,56,.04); border-color: var(--red); }
+  .form-group textarea { min-height: 130px; resize: vertical; }
+  .form-group select { appearance: none; cursor: pointer; }
+  .form-group option { color: var(--white); background: var(--dark2); }
+  .form-honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .turnstile-wrap { min-height: 70px; margin: .25rem 0 .75rem; }
+  .form-submit { width: 100%; margin-top: .5rem; padding: 1rem; color: var(--white); background: var(--red); border: 0; border-radius: 2px; cursor: pointer; font: 800 1rem var(--font-display); letter-spacing: .1em; text-transform: uppercase; transition: background .2s; }
+  .form-submit:hover:not(:disabled) { background: var(--red-dark); }
+  .form-submit:disabled { cursor: not-allowed; opacity: .8; }
+  .form-status { display: none; margin-top: 1rem; padding: .85rem 1rem; font-size: .84rem; border: 1px solid transparent; border-radius: 2px; }
+  .form-status.is-visible { display: block; }
+  .form-status.is-success { color: #9de2ba; background: rgba(26,122,74,.15); border-color: rgba(26,122,74,.4); }
+  .form-status.is-error { color: #ffb3bf; background: rgba(217,27,56,.12); border-color: rgba(217,27,56,.35); }
   footer.site-footer { padding: 70px 8% 24px; background: #070707; border-top: 1px solid rgba(255,255,255,.06); }
   .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; }
   .footer-logo { width: fit-content; margin-bottom: 1.25rem; padding: 6px 10px; background: var(--white); border-radius: 2px; }
@@ -133,12 +169,17 @@
     .nav-links.open { display: flex; }
     .nav-mobile-toggle { display: block; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
+    .contact-inner { grid-template-columns: 1fr; gap: 4rem; }
   }
   @media (max-width: 700px) {
     .reviews-hero { min-height: auto; padding: 145px 6% 80px; }
     .reviews { padding: 75px 6%; }
     .reviews-grid { grid-template-columns: 1fr; }
     .review-card { min-height: 300px; padding: 2rem; }
+    .conversion-cta { padding: 3.5rem 6%; flex-direction: column; align-items: flex-start; }
+    .contact { padding: 75px 6%; }
+    .contact-form { padding: 1.5rem; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
     .footer-grid { grid-template-columns: 1fr; }
   }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } [data-reveal] { opacity: 1; transform: none; transition: none; } }
@@ -208,6 +249,58 @@
     </div>
     <a class="trustpilot-badge" href="https://dk.trustpilot.com/review/carupgrade.dk" target="_blank" rel="noopener noreferrer">★ Læs alle anmeldelser på Trustpilot ↗</a>
   </section>
+
+  <section class="conversion-cta" aria-labelledby="cta-title">
+    <div>
+      <div class="section-label">Klar til næste skridt?</div>
+      <h2 id="cta-title">Få samme gode service – direkte hos dig</h2>
+      <p>Beskriv opgaven, så vender vi tilbage med et uforpligtende tilbud inden for 24 timer på hverdage.</p>
+    </div>
+    <a href="#kontakt" class="btn-primary">Få et tilbud →</a>
+  </section>
+
+  <section class="contact" id="kontakt">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <div class="section-label">Kontakt os</div>
+        <h2>Få bilen fikset hos dig</h2>
+        <p>Beskriv din opgave, og vi sender dig et uforpligtende tilbud inden for 24 timer. Ingen ventetid – ingen overraskelser.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="contact-detail-label">Email</div><div class="contact-detail-value"><a href="mailto:info@carupgrade.dk">info@carupgrade.dk</a></div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.8a2 2 0 0 1-.45 2.11L8.05 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.31 1.84.53 2.8.66A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><div class="contact-detail-label">Telefon</div><div class="contact-detail-value"><a href="tel:+4531147737">31 14 77 37</a></div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div><div class="contact-detail-label">Åbningstider</div><div class="contact-detail-value">Man-Fre 09:00-19:00<br>Weekender efter aftale</div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="contact-detail-label">Dækningsområde</div><div class="contact-detail-value">Sjælland og Jylland</div></div>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm" action="/api/contact" method="POST" data-reveal>
+        <div class="form-row">
+          <div class="form-group"><label for="name">Navn *</label><input type="text" id="name" name="name" placeholder="Dit fulde navn" autocomplete="name" required></div>
+          <div class="form-group"><label for="phone">Telefon</label><input type="tel" id="phone" name="phone" placeholder="Mobilnummer" autocomplete="tel"></div>
+        </div>
+        <div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" placeholder="din@email.dk" autocomplete="email" required></div>
+        <div class="form-row">
+          <div class="form-group"><label for="car">Nummerplade</label><input type="text" id="car" name="car" placeholder="F.eks. AB 12 345"></div>
+          <div class="form-group"><label for="service">Service type</label><select id="service" name="service"><option value="">Vælg servicetype...</option><option>Rutinemæssig service</option><option>Bremser &amp; dæk</option><option>Motordiagnostik</option><option>El-system &amp; batteri</option><option>Reparation (afhentning)</option><option>Andet</option></select></div>
+        </div>
+        <div class="form-group"><label for="message">Beskrivelse af opgaven *</label><textarea id="message" name="message" placeholder="Beskriv problemet eller opgaven så præcist som muligt..." required></textarea></div>
+        <div class="form-honeypot" aria-hidden="true"><label for="website">Website</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
+        <div class="turnstile-wrap"><div id="turnstileWidget"></div></div>
+        <button type="submit" class="form-submit">Send uforpligtende forespørgsel →</button>
+        <div class="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">
@@ -239,6 +332,90 @@
     entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
   }, { threshold: 0.12 });
   document.querySelectorAll('[data-reveal]').forEach((element) => revealObserver.observe(element));
+
+  const form = document.getElementById('contactForm');
+  const submitButton = form.querySelector('.form-submit');
+  const formStatus = form.querySelector('.form-status');
+  const defaultSubmitText = submitButton.textContent;
+  let turnstileWidgetId = null;
+
+  const showFormStatus = (message, type) => {
+    formStatus.textContent = message;
+    formStatus.className = `form-status is-visible is-${type}`;
+  };
+
+  const resetTurnstile = () => {
+    if (window.turnstile && turnstileWidgetId !== null) window.turnstile.reset(turnstileWidgetId);
+  };
+
+  const renderTurnstile = async () => {
+    submitButton.disabled = true;
+    try {
+      const response = await fetch('/api/turnstile-config', { headers: { Accept: 'application/json' } });
+      const config = await response.json();
+      if (!response.ok || !config.ok || !config.siteKey) throw new Error('Turnstile sitekey mangler');
+
+      await new Promise((resolve, reject) => {
+        let attempts = 0;
+        const timer = window.setInterval(() => {
+          attempts += 1;
+          if (window.turnstile) {
+            window.clearInterval(timer);
+            resolve();
+          } else if (attempts > 100) {
+            window.clearInterval(timer);
+            reject(new Error('Turnstile blev ikke indlæst'));
+          }
+        }, 100);
+      });
+
+      turnstileWidgetId = window.turnstile.render('#turnstileWidget', {
+        sitekey: config.siteKey,
+        theme: 'dark',
+        action: 'contact'
+      });
+      submitButton.disabled = false;
+    } catch (error) {
+      submitButton.textContent = 'Formular midlertidigt utilgængelig';
+      showFormStatus('Sikkerhedstjekket kunne ikke indlæses. Kontakt os direkte på info@carupgrade.dk eller ring til os på +45 31 14 77 37.', 'error');
+    }
+  };
+
+  renderTurnstile();
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sender forespørgsel...';
+    submitButton.style.background = '#555';
+    formStatus.className = 'form-status';
+    formStatus.textContent = '';
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: JSON.stringify(Object.fromEntries(formData.entries())),
+        headers: { Accept: 'application/json', 'Content-Type': 'application/json' }
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.ok) throw new Error('Beskeden blev ikke sendt');
+
+      form.reset();
+      document.dispatchEvent(new CustomEvent('carupgrade:contact-success'));
+      resetTurnstile();
+      submitButton.textContent = 'Forespørgsel sendt';
+      submitButton.style.background = '#1a7a4a';
+      showFormStatus(result.message || 'Tak for din henvendelse. Vi vender tilbage hurtigst muligt.', 'success');
+    } catch (error) {
+      resetTurnstile();
+      submitButton.textContent = defaultSubmitText;
+      submitButton.style.background = '';
+      showFormStatus('Der opstod en fejl. Prøv igen eller kontakt os direkte på info@carupgrade.dk eller ring til os på +45 31 14 77 37.', 'error');
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
 </script>
 </body>
 </html>

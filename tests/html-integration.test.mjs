@@ -172,6 +172,24 @@ test('reviews page renders all four approved reviews', async () => {
   }
 });
 
+test('reviews page ends with a strong CTA and the protected contact form', async () => {
+  const reviews = await readPage('anmeldelser');
+  const ctaIndex = reviews.indexOf('class="conversion-cta"');
+  const formIndex = reviews.indexOf('id="contactForm"');
+
+  assert.ok(ctaIndex > -1);
+  assert.ok(formIndex > ctaIndex);
+  assert.match(reviews, /<form[^>]*id="contactForm"[^>]*action="\/api\/contact"[^>]*method="POST"/);
+  assert.match(reviews, /name="name"[^>]*required/);
+  assert.match(reviews, /name="email"[^>]*required/);
+  assert.match(reviews, /name="message"[^>]*required/);
+  assert.match(reviews, /name="website"[^>]*tabindex="-1"/);
+  assert.match(reviews, /id="turnstileWidget"/);
+  assert.match(reviews, /turnstile\.render/);
+  assert.match(reviews, /fetch\(form\.action/);
+  assert.match(reviews, /class="form-status"[^>]*role="status"[^>]*aria-live="polite"/);
+});
+
 test('full navigation collapses before labels can wrap at tablet widths', async () => {
   const files = await findHtmlFiles();
 
