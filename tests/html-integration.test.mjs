@@ -225,8 +225,8 @@ test('FAQ pages describe service coverage in Jutland and Zealand', async () => {
   for (const directory of ['FAQ', 'faq']) {
     const html = await readFile(path.join(root, directory, 'index.html'), 'utf8');
 
-    assert.equal((html.match(/Hvor reparerer I biler\?/g) || []).length, 2, directory);
-    assert.match(html, /Vi reparerer biler i både Jylland og på Sjælland\./);
+    assert.equal((html.match(/Kan I komme hjem til mig eller på min arbejdsplads\?/g) || []).length, 2, directory);
+    assert.match(html, /Ja, på Sjælland og i Jylland\./);
   }
 });
 
